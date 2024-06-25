@@ -222,9 +222,6 @@ function novaPlanilha() {
     div.appendChild(divNomeTabela);
     divNomeTabela.appendChild(inputNomeTabela);
 
-    // div.appendChild(inputNomeTabela);
-    //div.appendChild(inputcabecalhoTabela);
-
     div.appendChild(divCabecalhoTabela);
     divCabecalhoTabela.appendChild(inputcabecalhoTabela);
 
