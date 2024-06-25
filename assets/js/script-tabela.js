@@ -93,10 +93,13 @@ function addHeaderCell(tabela, cabecalho) {
     const cmdSelect = document.createElement("select");
   
     const options = [
-        { text: "SERIAL UNIQUE NOT NULL", selected: true },
-        { text: "SERIAL UNIQUE", selected: false },
-        { text: "SERIAL NOT NULL", selected: false },
-        { text: "SERIAL", selected: false }
+        { text: "VACHAR(255) NOT NULL", selected: true },
+        { text: "VARCHAR(255) DEFAULT NULL", selected: false },
+        { text: "INT NOT NULL", selected: false },
+        { text: "INT DEFAULT NULL", selected: false },
+        { text: "DECIMAL(10,2) NOT NULL", selected: false },
+        { text: "DATE NOT NULL", selected: false },
+        { text: "DATE NOT NULL DEFAULT NOW()", selected: false },
     ];
     
     for (let i = 0; i < options.length; i++) {
