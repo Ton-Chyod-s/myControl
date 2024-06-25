@@ -209,25 +209,32 @@ function novaPlanilha() {
     sql.onclick = function() {
         const divTabelas = document.getElementsByClassName("table table-bordered table-hover");
 
+        let nomeTabela = 0;
+        
+        let tabelas = [];
 
         for (let i = 0; i < divTabelas.length; i++) {
             let nomeTabela = divTabelas[i].id;
+            let colunas = [];
+            let nomeColuna;
+
             const tabela = divTabelas[i];
             const headers = tabela.querySelectorAll("tr th");
+            
             for (let j = 0; j < headers.length; j++) {
                 const header = headers[j];
                 
-                console.log(nomeTabela);
-                console.log(header.textContent);
+                if (!nomeColuna) {
+                    nomeColuna = header.textContent.split("-")[1];
+                }
 
-                // colunas.push(header.textContent);
-                // tabelas.push(colunas);
-               
-                // console.log(tabelas);
+                if (nomeTabela.includes(nomeColuna)) {
+                    colunas.push(header.textContent);
+                }
             }
-            
-            colunas = [];
+            tabelas.push(colunas);
         }
+        console.log(tabelas);
     }
 }
 
