@@ -212,6 +212,7 @@ function novaPlanilha() {
         for (let i = 0; i < divTabelas.length; i++) {
             let nomeTabela = divTabelas[i].id;
             let colunas = [];
+            let cmdColuna = [];
             let nomeColuna;
 
             const tabela = divTabelas[i];
@@ -227,6 +228,14 @@ function novaPlanilha() {
                 if (nomeTabela.includes(nomeColuna)) {
                     colunas.id = nomeTabela;
                     colunas.push(header.textContent);
+                    
+                    console.log(header.textContent);
+
+                    
+                    cmdColuna.id = header.textContent;
+                    colunas.push(cmdColuna);
+                    
+
                 }
             }
             tabelas.push(colunas);
