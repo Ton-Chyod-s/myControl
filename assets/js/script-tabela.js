@@ -75,6 +75,7 @@ function headerExists(tabela, cabecalho) {
 }
 
 function addHeaderCell(tabela, cabecalho) {
+    const nomeTabela = tabela.id;
     const thead = tabela.querySelector("thead tr");
     const th = document.createElement("th");
     if (cabecalho.includes(' ')) {
@@ -83,6 +84,29 @@ function addHeaderCell(tabela, cabecalho) {
 
     th.textContent = cabecalho;
     thead.appendChild(th);
+
+    const divTh = document.createElement("div");
+    divTh.id = `div-th`; 
+    divTh.className = `div-th-${nomeTabela}`;
+    th.appendChild(divTh);
+
+    const cmdSelect = document.createElement("select");
+  
+    const options = [
+        { text: "SERIAL UNIQUE NOT NULL", selected: true },
+        { text: "SERIAL UNIQUE", selected: false },
+        { text: "SERIAL NOT NULL", selected: false },
+        { text: "SERIAL", selected: false }
+    ];
+    
+    for (let i = 0; i < options.length; i++) {
+        const option = document.createElement("option");
+        option.textContent = options[i].text;
+        cmdSelect.appendChild(option);
+    }
+    
+    divTh.appendChild(cmdSelect);
+
 }
 
 function createNewTable(divTabela, nomeTabela, cabecalho) {
