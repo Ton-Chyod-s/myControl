@@ -208,11 +208,7 @@ function novaPlanilha() {
 
     sql.onclick = function() {
         const divTabelas = document.getElementsByClassName("table table-bordered table-hover");
-
-        let nomeTabela = 0;
-        
         let tabelas = [];
-
         for (let i = 0; i < divTabelas.length; i++) {
             let nomeTabela = divTabelas[i].id;
             let colunas = [];
@@ -229,6 +225,7 @@ function novaPlanilha() {
                 }
 
                 if (nomeTabela.includes(nomeColuna)) {
+                    colunas.id = nomeTabela;
                     colunas.push(header.textContent);
                 }
             }
