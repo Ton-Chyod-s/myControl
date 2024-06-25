@@ -1,0 +1,134 @@
+#id-tabela {
+    display: flex;
+}
+
+#button-crud {
+    align-items: center;
+}
+
+#button-crud input {
+    margin: 10px;
+    height: 25px;
+    width: 10%;
+    display: inline-flex;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+#button-crud input#button-update {
+    background-color: #8bc498;
+    color: white;
+}
+
+#button-crud input#button-delete {
+    background-color: #d9534f;
+    color: white;
+}
+
+header input,
+#confirmar,
+#exemplo,
+input#criar,
+#adicionar {
+    margin: 10px;
+    height: 25px;
+    width: 15%;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+div#divNomeTabela, div#divCabecalhoTabela {
+    margin: 10px;
+    height: 26px;
+    width: 15%;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+
+}
+
+div#divNomeTabela #nomeTabela, div#divCabecalhoTabela #cabecalhoTabela {
+    margin: 0px;
+    height: 25px;
+    width: 100%;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+#confirmar {
+    background-color: #8bc498;
+    color: white;
+}
+
+#exemplo {
+    background-color: #0275D8;
+    color: white;
+}
+
+.delete {
+    background-color: #d9534f;
+    color: white;
+}
+
+table {
+    width: 100%;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#tabelaExemplo {
+    background-color: #e6e941;
+    color: #000000;
+}
+
+#menu {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; 
+    margin-top: 0px;
+    width: 100%; 
+    height: 25px;
+    box-sizing: border-box;
+}
+
+#menu > input {
+    list-style-type: none;
+    margin-right: 10px;
+  
+}
+
+#menu-linha {       
+    box-sizing: border-box;
+    /* border: 1px solid #ccc; */
+    text-align: center;
+    margin-top: 0%;
+}
+
+#select {
+    width: 8%;
+    height: 25px;
+    margin: 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+                                                              
+#divsql {
+    margin: 10px;
+    height: 25px;
+    width: 20%;
+    display: flex;
+    box-sizing: border-box;
+
+    /* border: 1px solid #ccc; */
+}
+
+#button-sql {
+    text-align: center;
+    margin-left: 55%;
+}

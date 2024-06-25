@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="assets/css/style-form.css">
+</head>
+<body>
+
+<div id="divTot">
+    <div id="divInicio">
+        <div id="divBusca">
+            <input type="text" id="txtBusca" placeholder="Buscar..."/>
+            <button id="btnBusca">Buscar</button>
+        </div>
+
+        <div id="button">  
+            <span id="spanAddNew">Add New</span>
+            <span id="spanUpdate">Update</span>
+            <span id="spanSave">Save</span>
+            <span id="spanDelete">Delete</span>
+        </div>
+
+        <div action="#" id="divSelect">
+            <select name="languages" id="lang">
+            <option value="javascript">JavaScript</option>
+            <option value="php">PHP</option>
+            <option value="java">Java</option>
+            <option value="golang">Golang</option>
+            <option value="python">Python</option>
+            <option value="c#">C#</option>
+            <option value="C++">C++</option>
+            <option value="erlang">Erlang</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="divForm">
+        <div>
+            <p id="p1">Cliente</p>
+        </div>
+        <div>   
+            <form action="php/insert.php" method="post">
+            <label for="nome">Nome:</label>
+            <span id="inputNome"><input type="text" name="nome" id="input" required></span>
+            <label for="email">Email:</label>
+            <span id="spanEmail"><input type="imputEmail" name="email" id="input" required></span>
+            </form>
+
+        <p></p>
+
+        <div>
+            <label for="telefone">What-sapp:</label>
+            <span id="spanTelefone"><input type="text" name="telefone" id="input" required></span>
+            <label for="endereco">Localidade:</label>
+            <span id="spanEndereco"><input type="text" name="endereco" id="input" required></span>
+        <div>
+
+        </div>
+    </div>
+
+    <div>   
+        <p id="p2">Produto</p>
+    </div>
+
+    <div>  
+        <label for="cidade">Nome:</label>
+        <span id="spanCidade"><input type="text" name="nome" id="input" required></span>
+        <label for="estado">Quantidade:</label>
+        <span id="spanQuantidade"><input type="text" name="quantidade" id="input" required></span>
+        
+    </div>
+    <p></p>
+    <div>
+        <label for="cep">Valor:</label>
+        <span id="spanValor"><input type="text" name="valor" id="input" required></span>
+        <label for="pais">Descrição:</label>
+        <span id="spanDescricao"><input type="text" name="descricao" id="input" required></span>
+    </div>
+</div>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>

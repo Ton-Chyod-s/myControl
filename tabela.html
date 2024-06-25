@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela Dinâmica</title>
+    <link rel="stylesheet" href="assets/css/style-tabela.css">
+</head>
+<body>
+
+    <div id="id-tabela">
+        <select id="select">
+
+        </select>
+        
+        <input id="criar" type="button" value="Criar" onclick="novaPlanilha()">
+        
+        <input id="exemplo" type="button" value="Exemplo" onclick="tabelaExemplo()">
+    </div>
+    
+    <div id="tabelas">
+        <h4>Conteúdo: </h4> 
+
+        <div id="menu-linha">
+            <div id="button-crud">
+                <input id="button-update" type="button" value="Atualizar linha"  onclick="atualizarLinha()">
+                |
+                <input id="button-delete" type="button" value="Deletar linha" onclick="deletarLinha()">
+            </div>
+        </div>
+        <table>
+
+        </table>
+    </div>
+    
+    <script src="assets/js/script-tabela.js"></script>
+    
+</body>
+</html>
