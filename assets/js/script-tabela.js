@@ -28,7 +28,7 @@ function criarTabela() {
         } 
     } else {
         if (!cabecalho.includes('id')) {
-            const newCabecalho = 'id-' + nomeTabela.replace(/s\b/g, "");
+            const newCabecalho = 'id-' + nomeTabela.replace(/s\b/g, "") + ' ';
             createNewTable(divTabela, nomeTabela, newCabecalho);
 
             const tabela = divTabela.querySelector("#" + nomeTabela);
@@ -116,7 +116,7 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
 
     const divTh = document.createElement("div");
     divTh.id = `div-th`; ;
-    divTh.className = `div-th-${nomeTabela}`; ;
+    divTh.className = `div-th-${nomeTabela}`;
     th.appendChild(divTh);
 
     thead.appendChild(headerRow);
@@ -239,24 +239,30 @@ function novaPlanilha() {
 
             const tabela = divTabelas[i];
             const headers = tabela.querySelectorAll("tr th");
-            
+            const cmdOptions = tabela.querySelectorAll("tr th div select option:checked");
+
             for (let j = 0; j < headers.length; j++) {
-                const header = headers[j];
-                
+            
+                let header = headers[j].textContent;
+              
                 if (!nomeColuna) {
-                    nomeColuna = header.textContent.split("-")[1];
+                    nomeColuna = header.split(" ")[0];
                 }
 
-                if (nomeTabela.includes(nomeColuna)) {
+                console.log (nomeColuna);
+                console.log (nomeTabela);
+
+                if ( nomeTabela.includes(nomeColuna) ) {
                     colunas.id = nomeTabela;
-                    colunas.push(header.textContent);
+                    colunas.push(nomeColuna);
                     
                     // Adicionar os cmd
                     if (cmdColuna.id === undefined) {
                         cmdColuna.id = header.textContent;
                         colunas.push(cmdColuna);
                         cmdColuna = [];
-                    } 
+                    }
+                    console.log(colunas);
                 }
             }
             tabelas.push(colunas);
