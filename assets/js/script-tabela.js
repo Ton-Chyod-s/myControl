@@ -82,7 +82,7 @@ function addHeaderCell(tabela, cabecalho) {
         cabecalho = cabecalho.replace(/\s+/g, "-");
     }
 
-    th.textContent = cabecalho;
+    th.textContent = cabecalho + " ";
     thead.appendChild(th);
 
     const divTh = document.createElement("div");
@@ -269,13 +269,10 @@ function novaPlanilha() {
             const cmdOptions = tabela.querySelectorAll("tr th div select option:checked");
 
             for (let j = 0; j < headers.length; j++) {
-            
                 let header = headers[j].textContent;
-              
-                if (!nomeColuna) {
-                    nomeColuna = header.split(" ")[0];
-                }
-
+                
+                nomeColuna = header.split(" ")[0];
+                
                 if ( header.includes(nomeColuna) ) {
                     colunas.id = nomeTabela;
                     colunas.push(nomeColuna);
@@ -287,6 +284,7 @@ function novaPlanilha() {
                         cmdColuna = [];
                     }
                 }
+                delete nomeColuna.textContent;
             }
             tabelas.push(colunas);
         }
