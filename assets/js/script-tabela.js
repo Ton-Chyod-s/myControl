@@ -249,20 +249,16 @@ function novaPlanilha() {
                     nomeColuna = header.split(" ")[0];
                 }
 
-                console.log (nomeColuna);
-                console.log (nomeTabela);
-
-                if ( nomeTabela.includes(nomeColuna) ) {
+                if ( header.includes(nomeColuna) ) {
                     colunas.id = nomeTabela;
                     colunas.push(nomeColuna);
                     
                     // Adicionar os cmd
                     if (cmdColuna.id === undefined) {
-                        cmdColuna.id = header.textContent;
+                        cmdColuna.id = nomeColuna;
                         colunas.push(cmdColuna);
                         cmdColuna = [];
                     }
-                    console.log(colunas);
                 }
             }
             tabelas.push(colunas);
