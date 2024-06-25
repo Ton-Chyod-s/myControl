@@ -229,13 +229,12 @@ function novaPlanilha() {
                     colunas.id = nomeTabela;
                     colunas.push(header.textContent);
                     
-                    console.log(header.textContent);
-
-                    
-                    cmdColuna.id = header.textContent;
-                    colunas.push(cmdColuna);
-                    
-
+                    // Adicionar os cmd
+                    if (cmdColuna.id === undefined) {
+                        cmdColuna.id = header.textContent;
+                        colunas.push(cmdColuna);
+                        cmdColuna = [];
+                    } 
                 }
             }
             tabelas.push(colunas);
