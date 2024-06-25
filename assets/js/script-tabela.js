@@ -113,7 +113,30 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
     const th = document.createElement("th");
     th.textContent = cabecalho;
     headerRow.appendChild(th);
+
+    const divTh = document.createElement("div");
+    divTh.id = `div-th`; ;
+    divTh.className = `div-th-${nomeTabela}`; ;
+    th.appendChild(divTh);
+
     thead.appendChild(headerRow);
+
+    const cmdSelect = document.createElement("select");
+  
+    const options = [
+        { text: "SERIAL UNIQUE NOT NULL", selected: true },
+        { text: "SERIAL UNIQUE", selected: false },
+        { text: "SERIAL NOT NULL", selected: false },
+        { text: "SERIAL", selected: false }
+    ];
+    
+    for (let i = 0; i < options.length; i++) {
+        const option = document.createElement("option");
+        option.textContent = options[i].text;
+        cmdSelect.appendChild(option);
+    }
+    
+    divTh.appendChild(cmdSelect);
 
     tabela.appendChild(thead);
     tabela.appendChild(tbody);
@@ -163,7 +186,6 @@ function novaPlanilha() {
     inputcabecalhoTabela.id = "cabecalhoTabela";
     inputcabecalhoTabela.placeholder = "Nome do Cabeçalho";
 
-    
     const criarButton = document.createElement("input");
     criarButton.value = "Adicionar Cabeçalho";
     criarButton.type = "button";
@@ -224,7 +246,7 @@ function novaPlanilha() {
                 if (!nomeColuna) {
                     nomeColuna = header.textContent.split("-")[1];
                 }
-                
+
                 if (nomeTabela.includes(nomeColuna)) {
                     colunas.id = nomeTabela;
                     colunas.push(header.textContent);
