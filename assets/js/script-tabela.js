@@ -280,6 +280,7 @@ function novaPlanilha() {
                     // Adicionar os cmd
                     if (cmdColuna.id === undefined) {
                         cmdColuna.id = nomeColuna;
+                        cmdColuna.push(cmdOptions[j].textContent);
                         colunas.push(cmdColuna);
                         cmdColuna = [];
                     }
