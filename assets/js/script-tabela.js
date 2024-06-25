@@ -224,7 +224,7 @@ function novaPlanilha() {
                 if (!nomeColuna) {
                     nomeColuna = header.textContent.split("-")[1];
                 }
-
+                
                 if (nomeTabela.includes(nomeColuna)) {
                     colunas.id = nomeTabela;
                     colunas.push(header.textContent);
