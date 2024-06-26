@@ -240,6 +240,14 @@ select {
     justify-content: left;
 
 }
-/* #createCMD, #tabelasCMD {
-    border: 1px solid #ccc;
-} */
+
+#createCMD {
+    margin-top: -12px;
+    /* border: 1px solid #ccc; */
+
+}
+
+#tabelasCMD {
+    margin-top: 5px;
+    /* border: 1px solid #ccc; */
+}
