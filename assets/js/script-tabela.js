@@ -352,12 +352,17 @@ function novaPlanilha() {
         }
         console.log(tabelas);
         
-        createCMD.textContent = `CREATE DATABASE ${nomeBancoDados} `;
+        createCMD.textContent = `CREATE DATABASE ${nomeBancoDados} (`;
 
         for (let i = 0; i < tabelas.length; i++) {
             const linhas = tabelas[i];
             for (let j = 0; j < linhas.length; j += 2 ) {
-                tabelasCMD.textContent = `( ${linhas[j]} ${ linhas[j + 1]} );`;
+                const div = document.createElement("div");
+                div.id = `div-${j}`;
+
+                tabelasCMD.appendChild(div);
+
+                div.textContent = ` ${linhas[j]} ${ linhas[j + 1]}, `;
                 
             }
         }
