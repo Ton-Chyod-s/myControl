@@ -78,13 +78,13 @@ function addHeaderCell(tabela, cabecalho) {
     const nomeTabela = tabela.id;
     const thead = tabela.querySelector("thead tr");
     const th = document.createElement("th");
+    if (cabecalho.includes(' ')) {
+        cabecalho = cabecalho.replace(/\s+/g, "-");
+    }
     th.id = nomeTabela + "-" + cabecalho;
 
     th.addEventListener("mouseenter", function() {
         
-
-        console.log(nomeTabela);
-
         const divTh = document.querySelector("#" + nomeTabela + "-" + cabecalho);
         divTh.style.border = "1px solid #e9e9e9";
         divTh.style.boxsizing = "border-box";
@@ -92,6 +92,7 @@ function addHeaderCell(tabela, cabecalho) {
     })
 
     th.addEventListener("mouseleave", function() {
+        
         const divTh = document.querySelector("#" + nomeTabela + "-" + cabecalho);
         divTh.style.border = "none";
         divTh.style.boxsizing = "border-box";
