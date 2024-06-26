@@ -143,7 +143,18 @@ table {
     color: white;
 }
 
+.delete:hover,
+#button-crud input#button-delete:hover {
+    background-color: #ad423f;
+    color: white;
+}
 
+
+#button-crud input#button-update:hover,
+#confirmar:hover {
+    background-color: #6f9c79;
+    color: white;
+}
 
 #divsql input {
     width: 100%;

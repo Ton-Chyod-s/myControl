@@ -304,7 +304,12 @@ function nomeTabela() {
 
         cont = 0;
     } else {
-        window.alert("Preencha o nome da tabela");
+        if (nome.value !== "") {
+            window.alert("Use o botão adicionar a tabela");
+        } else {
+            window.alert("Preencha o nome da tabela");
+        }
+        
     }
 }
 
