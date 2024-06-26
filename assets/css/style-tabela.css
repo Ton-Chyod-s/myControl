@@ -136,10 +136,14 @@ table {
     margin-right: -1px;
 }
 
+#criar:hover,
+#adicionar:hover,
 #button-sql:hover {
     background-color: #0275D8;
     color: white;
 }
+
+
 
 #divsql input {
     width: 100%;
