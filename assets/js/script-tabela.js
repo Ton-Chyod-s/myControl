@@ -360,11 +360,15 @@ function novaPlanilha() {
             const linhas = tabelas[i];
             nomeTabelaCMD.textContent = `CREATE TABLE ${linhas.id} (`;
 
+            const div = document.createElement("div");
+            div.id = `div-${i}`;
+            tabelasCMD.appendChild(div);
+            
             for (let j = 0; j < linhas.length; j += 2 ) {
-                const div = document.createElement("div");
+                
                 div.id = `div-${j}`;
 
-                tabelasCMD.appendChild(div);
+                
 
                 div.textContent = ` ${linhas[j]} ${ linhas[j + 1]}, `;
                 
