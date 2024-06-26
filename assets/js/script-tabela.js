@@ -15,8 +15,6 @@ function criarTabela() {
 
     const cabecalho = document.querySelector("#cabecalhoTabela").value.trim();
 
-    console.log(cabecalho);
-
     if (nomeTabela === "") {
         window.alert("Por favor, preencha todos os campos disponiveis.");
         return;
@@ -68,7 +66,13 @@ function hasTable(div, tableId) {
 function headerExists(tabela, cabecalho) {
     const headerCells = tabela.querySelectorAll("thead th");
     for (const th of headerCells) {
-        if (th.textContent === cabecalho) {
+        const thText = th.textContent.split(" ")[0];
+
+        if (cabecalho.includes(' ')) {
+            cabecalho = cabecalho.replace(/\s+/g, "-");
+        }
+
+        if (thText === cabecalho) {
             window.alert("Nome do cabeçalho já existe");
             return true;
         }
@@ -80,9 +84,13 @@ function addHeaderCell(tabela, cabecalho) {
     const nomeTabela = tabela.id;
     const thead = tabela.querySelector("thead tr");
     const th = document.createElement("th");
+
     if (cabecalho.includes(' ')) {
         cabecalho = cabecalho.replace(/\s+/g, "-");
+    } else if ( cabecalho === "" ) {
+        return; 
     }
+
     th.id = nomeTabela + "-" + cabecalho;
 
     th.addEventListener("mouseenter", function() {
@@ -99,12 +107,11 @@ function addHeaderCell(tabela, cabecalho) {
         img.src = "assets/images/icon/delete.png";
 
         divThs.appendChild(img);
-        
+
         img.addEventListener("click", function() {
             const th = document.getElementById(nomeTabela + "-" + cabecalho);
             th.remove();
         })
-
     })
 
     th.addEventListener("mouseleave", function() {
