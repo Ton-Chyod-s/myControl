@@ -254,7 +254,16 @@ function novaPlanilha() {
 
     sql.onclick = function() {
         const divTabelas = document.getElementsByClassName("table table-bordered table-hover");
+        let nomeBancoDados = document.querySelector("#inputBancoDados").value;
+
+        if (!nomeBancoDados) {
+            nomeBancoDados = "generico";
+        }
+
         let tabelas = [];
+        tabelas.id = nomeBancoDados;
+        tabelas.className = "table table-model"
+
         for (let i = 0; i < divTabelas.length; i++) {
             let nomeTabela = divTabelas[i].id;
             let colunas = [];
