@@ -92,17 +92,23 @@ function addHeaderCell(tabela, cabecalho) {
         divTh.style.boxsizing = "border-box";
         divTh.style.backgroundColor = "#fafafa";
         
+        const divThs = document.createElement(`div`);
+        divThs.id = `divThs`;
+        th.appendChild(divThs);
         
 
-        
+
     })
 
     th.addEventListener("mouseleave", function() {
-        
+        const divThs = document.getElementById(`divThs`);
+        divThs.remove();
+
         const divTh = document.querySelector("#" + nomeTabela + "-" + cabecalho);
         divTh.style.border = "none";
         divTh.style.boxsizing = "border-box";
         divTh.style.backgroundColor = "white";
+
     })
 
     if (cabecalho.includes(' ')) {
