@@ -90,7 +90,11 @@ function addHeaderCell(tabela, cabecalho) {
         const divTh = document.querySelector("#" + nomeTabela + "-" + cabecalho);
         divTh.style.border = "1px solid #e9e9e9";
         divTh.style.boxsizing = "border-box";
-        divTh.style.backgroundColor = "#fafafa";  
+        divTh.style.backgroundColor = "#fafafa";
+        
+        
+
+        
     })
 
     th.addEventListener("mouseleave", function() {
