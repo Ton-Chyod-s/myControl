@@ -170,7 +170,7 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
 
     const buttonDel = document.createElement("input");
     buttonDel.type = "button";
-    buttonDel.value = "Deletar Planilha";
+    buttonDel.value = "Deletar Tabela";
     buttonDel.onclick = deletarTabela;
     buttonDel.id = `${nomeTabela}-button`;
     buttonDel.className = "delete";
@@ -412,33 +412,28 @@ function tabelaExemplo() {
         "pais",
     ];
 
-    if (hasTable(div, nomeTabela)) {
-        const tabela = div.querySelector("#" + nomeTabela);
-        headers.forEach(header => {
-            if (!headerExists(tabela, header)) {
-                addHeaderCell(tabela, header);
-            }
-        });
-    } else {
-        createNewTable(div, nomeTabela, headers[0]); 
-        headers.slice(1).forEach(header => { 
-            addHeaderCell(div.querySelector(`#${nomeTabela}`), header);
-        });
+    createNewTable(div, nomeTabela, headers[0]); 
+    headers.slice(1).forEach(header => { 
+        addHeaderCell(div.querySelector(`#${nomeTabela}`), header);
+    });
 
-        
-        const tabelaSelect = document.getElementById('select');
-        const option = document.createElement("option");
-        option.value = nomeTabela;
-        option.text = nomeTabela;
-        tabelaSelect.appendChild(option);
+    
+    const tabelaSelect = document.getElementById('select');
+    const option = document.createElement("option");
+    option.value = nomeTabela;
+    option.text = nomeTabela;
+    tabelaSelect.appendChild(option);
+    
     }
-}
 
 function atualizarLinha() {
-    window.alert("Sem planilha no banco de dados");
+    window.alert("Em desenvolvimento!");
 }
 
 function deletarLinha() {
-    window.alert("Sem planilha no banco de dados");
+    window.alert("Em desenvolvimento!");
 }
 
+function deletarBD() {
+    window.alert("Em desenvolvimento!");
+}
