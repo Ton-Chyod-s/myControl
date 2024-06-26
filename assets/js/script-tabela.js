@@ -1,6 +1,7 @@
 let cont = 0;
 let tabelas = [];
 let colunas = [];
+let tabelaJson = {};
 
 function criarTabela() {
     const divTabela = document.querySelector("#tabelas");
@@ -349,10 +350,7 @@ function novaPlanilha() {
         }
         console.log(tabelas);
         
-
-
-
-        
+       
         for (let i = 0; i < tabelas.length; i++) {
             const linhas = tabelas[i];
             for (let j = 0; j < linhas.length; j += 2 ) {
