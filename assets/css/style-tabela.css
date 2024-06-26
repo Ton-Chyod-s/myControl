@@ -213,3 +213,19 @@ select {
     height: 100px;
     background-color: #12100C;
 }
+
+#button-copy {
+    /* border: 1px solid #ccc; */
+    display: flex;
+    justify-content: right;;
+}
+
+#button-copy input {
+    border: 1px solid #ccc;
+    color: #7A7777;
+}   
+
+#button-copy input:hover {
+    background-color: #D67400;
+    color: #7A7777;
+}
