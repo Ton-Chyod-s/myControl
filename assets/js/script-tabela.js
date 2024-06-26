@@ -15,6 +15,8 @@ function criarTabela() {
 
     const cabecalho = document.querySelector("#cabecalhoTabela").value.trim();
 
+    console.log(cabecalho);
+
     if (nomeTabela === "") {
         window.alert("Por favor, preencha todos os campos disponiveis.");
         return;
@@ -98,7 +100,6 @@ function addHeaderCell(tabela, cabecalho) {
         divTh.style.boxsizing = "border-box";
         divTh.style.backgroundColor = "white";
     })
-
 
     if (cabecalho.includes(' ')) {
         cabecalho = cabecalho.replace(/\s+/g, "-");
