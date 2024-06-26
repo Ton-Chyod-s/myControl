@@ -349,9 +349,16 @@ function novaPlanilha() {
         }
         console.log(tabelas);
         
+
+
+
+        
         for (let i = 0; i < tabelas.length; i++) {
-            cmd.textContent = tabelas[i];
-            
+            const linhas = tabelas[i];
+            for (let j = 0; j < linhas.length; j += 2 ) {
+                cmd.textContent = `ALTER TABLE ${nomeBancoDados} ADD COLUMN ${linhas[j]} (${ linhas[j + 1] });`;
+                
+            }
         }
          
     }
