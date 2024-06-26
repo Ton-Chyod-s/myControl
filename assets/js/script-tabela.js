@@ -79,6 +79,22 @@ function addHeaderCell(tabela, cabecalho) {
     const thead = tabela.querySelector("thead tr");
     const th = document.createElement("th");
     th.id = cabecalho;
+
+    th.addEventListener("mouseenter", function() {
+        const divTh = document.querySelector("#" + cabecalho);
+        divTh.style.border = "1px solid #e9e9e9";
+        divTh.style.boxsizing = "border-box";
+        divTh.style.backgroundColor = "#fafafa";  
+    })
+
+    th.addEventListener("mouseleave", function() {
+        const divTh = document.querySelector("#" + cabecalho);
+        divTh.style.border = "none";
+        divTh.style.boxsizing = "border-box";
+        divTh.style.backgroundColor = "white";
+    })
+
+
     if (cabecalho.includes(' ')) {
         cabecalho = cabecalho.replace(/\s+/g, "-");
     }
