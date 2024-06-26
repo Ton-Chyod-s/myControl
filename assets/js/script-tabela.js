@@ -16,7 +16,7 @@ function criarTabela() {
     const cabecalho = document.querySelector("#cabecalhoTabela").value.trim();
 
     if (nomeTabela === "") {
-        window.alert("Por favor, preencha todos o nome da tabela.");
+        window.alert("Por favor, preencha todos os campos disponiveis.");
         return;
     }
 
@@ -291,16 +291,21 @@ function novaPlanilha() {
 }
 
 function nomeTabela() {
-    const divNomeTabela = document.querySelector("#divNomeTabela");
-    divNomeTabela.style.width = "15%";
+    const nome = document.querySelector("#nomeTabela");
+    if (!nome){
+        const divNomeTabela = document.querySelector("#divNomeTabela");
+        divNomeTabela.style.width = "15%";
 
-    const inputNomeTabela = document.createElement("input");
-    inputNomeTabela.id = "nomeTabela";
-    inputNomeTabela.placeholder = "Nome da Tabela";
+        const inputNomeTabela = document.createElement("input");
+        inputNomeTabela.id = "nomeTabela";
+        inputNomeTabela.placeholder = "Nome da Tabela";
 
-    divNomeTabela.appendChild(inputNomeTabela);
+        divNomeTabela.appendChild(inputNomeTabela);
 
-    cont = 0;
+        cont = 0;
+    } else {
+        window.alert("Preencha o nome da tabela");
+    }
 }
 
 function confirmarPlanilha() {
