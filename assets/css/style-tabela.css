@@ -195,7 +195,7 @@ select {
 }
 
 #divThs {
-    border: 1px solid #ccc;
-    width: 100%;
-    height: 35px;
+    /* border: 1px solid #ccc; */
+    width: 2%;
+    height: 15px;
 }

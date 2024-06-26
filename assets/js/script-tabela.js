@@ -95,8 +95,15 @@ function addHeaderCell(tabela, cabecalho) {
         const divThs = document.createElement(`div`);
         divThs.id = `divThs`;
         th.appendChild(divThs);
-        
+        const img = document.createElement("img");
+        img.src = "assets/images/icon/delete.png";
 
+        divThs.appendChild(img);
+        
+        img.addEventListener("click", function() {
+            const th = document.getElementById(nomeTabela + "-" + cabecalho);
+            th.remove();
+        })
 
     })
 
