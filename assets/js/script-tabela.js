@@ -78,6 +78,7 @@ function addHeaderCell(tabela, cabecalho) {
     const nomeTabela = tabela.id;
     const thead = tabela.querySelector("thead tr");
     const th = document.createElement("th");
+    th.id = cabecalho;
     if (cabecalho.includes(' ')) {
         cabecalho = cabecalho.replace(/\s+/g, "-");
     }
