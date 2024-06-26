@@ -14,6 +14,7 @@ function criarTabela() {
     }
 
     const cabecalho = document.querySelector("#cabecalhoTabela").value.trim();
+    nomeTabela = nomeTabela.toLowerCase();
 
     if (nomeTabela === "") {
         window.alert("Por favor, preencha todos os campos disponiveis.");
@@ -84,6 +85,9 @@ function addHeaderCell(tabela, cabecalho) {
     const nomeTabela = tabela.id;
     const thead = tabela.querySelector("thead tr");
     const th = document.createElement("th");
+
+    cabecalho = cabecalho.toLowerCase();
+    cabecalho = cabecalho.replace("/", "-")
 
     if (cabecalho.includes(' ')) {
         cabecalho = cabecalho.replace(/\s+/g, "-");
