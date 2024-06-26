@@ -304,6 +304,7 @@ function novaPlanilha() {
     divSql.appendChild(sql);
 
     sql.onclick = function() {
+        const cmd = document.querySelector("#cmd");
         const divTabelas = document.getElementsByClassName("table table-bordered table-hover");
         let nomeBancoDados = document.querySelector("#inputBancoDados").value;
 
@@ -347,6 +348,12 @@ function novaPlanilha() {
             tabelas.push(colunas);
         }
         console.log(tabelas);
+        
+        for (let i = 0; i < tabelas.length; i++) {
+            cmd.textContent = tabelas[i];
+            
+        }
+         
     }
 }
 

@@ -229,3 +229,7 @@ select {
     background-color: #D67400;
     color: #7A7777;
 }
+
+#cmd {
+    color: white;
+}
