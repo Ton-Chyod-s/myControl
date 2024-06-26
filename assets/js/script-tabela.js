@@ -305,7 +305,9 @@ function novaPlanilha() {
     divSql.appendChild(sql);
 
     sql.onclick = function() {
-        const cmd = document.querySelector("#cmd");
+        const createCMD = document.querySelector("#createCMD");
+        const tabelasCMD = document.querySelector("#tabelasCMD");
+
         const divTabelas = document.getElementsByClassName("table table-bordered table-hover");
         let nomeBancoDados = document.querySelector("#inputBancoDados").value;
 
@@ -350,11 +352,12 @@ function novaPlanilha() {
         }
         console.log(tabelas);
         
-       
+        createCMD.textContent = `CREATE DATABASE ${nomeBancoDados} `;
+
         for (let i = 0; i < tabelas.length; i++) {
             const linhas = tabelas[i];
             for (let j = 0; j < linhas.length; j += 2 ) {
-                cmd.textContent = `ALTER TABLE ${nomeBancoDados} ADD COLUMN ${linhas[j]} (${ linhas[j + 1] });`;
+                tabelasCMD.textContent = `( ${linhas[j]} ${ linhas[j + 1]} );`;
                 
             }
         }
