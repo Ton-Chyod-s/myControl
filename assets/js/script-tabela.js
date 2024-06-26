@@ -358,20 +358,19 @@ function novaPlanilha() {
 
         for (let i = 0; i < tabelas.length; i++) {
             const linhas = tabelas[i];
-            nomeTabelaCMD.textContent = `CREATE TABLE ${linhas.id} (`;
-
-            const div = document.createElement("div");
-            div.id = `div-${i}`;
-            tabelasCMD.appendChild(div);
             
+            const div = document.createElement("div");
+            div.id = `div-${linhas.id}`;
+            tabelasCMD.appendChild(div);
+
+            div.textContent = `CREATE TABLE ${linhas.id} (`;
+
             for (let j = 0; j < linhas.length; j += 2 ) {
+                const divCMD = document.createElement("div");
+                divCMD.id = `div-${linhas[j]}`;
+                div.appendChild(divCMD);
                 
-                div.id = `div-${j}`;
-
-                
-
-                div.textContent = ` ${linhas[j]} ${ linhas[j + 1]}, `;
-                
+                divCMD.textContent = ` ${linhas[j]} ${ linhas[j + 1]}, `;
             }
         }
          
