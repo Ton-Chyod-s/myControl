@@ -232,9 +232,14 @@ select {
 
 #cmd {
     color: white;
-    display: flex;
 }
 
+#idTabelaCMD {
+    /* border: 1px solid #ccc; */
+    display: flex;
+    justify-content: left;
+
+}
 /* #createCMD, #tabelasCMD {
     border: 1px solid #ccc;
 } */
