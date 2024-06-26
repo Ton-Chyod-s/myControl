@@ -206,3 +206,10 @@ select {
     width: 2%;
     height: 15px;
 }
+
+#prompt-CMD {
+    margin-top: 20px;
+    border: 5px solid #292524;
+    height: 100px;
+    background-color: #12100C;
+}

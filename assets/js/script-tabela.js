@@ -404,6 +404,13 @@ function confirmarPlanilha() {
 }
 
 function tabelaExemplo() {
+    const tabela_Exemplo = document.querySelector("#tabelaExemplo");
+
+    if (tabela_Exemplo) {
+        window.alert("Tabela exemplo ja adicionada");
+        return;
+    }
+
     const div = document.querySelector("#tabelas");
     const nomeTabela = "tabelaExemplo";
     const headers = [
@@ -421,7 +428,6 @@ function tabelaExemplo() {
         addHeaderCell(div.querySelector(`#${nomeTabela}`), header);
     });
 
-    
     const tabelaSelect = document.getElementById('select');
     const option = document.createElement("option");
     option.value = nomeTabela;
@@ -430,6 +436,7 @@ function tabelaExemplo() {
     
     }
 
+   
 function atualizarLinha() {
     window.alert("Em desenvolvimento!");
 }
