@@ -1,3 +1,5 @@
+
+
 let cont = 0;
 let tabelas = [];
 let colunas = [];
@@ -129,6 +131,13 @@ function addHeaderCell(tabela, cabecalho) {
         divTh.style.backgroundColor = "white";
 
     })
+
+    th.addEventListener("click", function() {
+        const divTh = document.querySelector("#" + nomeTabela + "-" + cabecalho);
+        if (divTh) {
+            divTh.style.border = "3px dashed #7A7777";
+        }
+    });
 
     if (cabecalho.includes(' ')) {
         cabecalho = cabecalho.replace(/\s+/g, "-");
@@ -379,20 +388,17 @@ function novaPlanilha() {
                 divCMD.id = `div-${linhas[j]}`;
                 divCMD.className = "table_table-cmd";
                 div.appendChild(divCMD);
-                
-                let final;
 
                 if (j === linhas.length - 2) {
                     const div = document.createElement("div");
                     div.id = `div-${linhas.id}-final`;
                     div.className = "table_table-final";
                     div.textContent = ");";
-                    divCMD.textContent = `'${linhas[j]}' ${ linhas[j + 1]}`;
+                    divCMD.textContent = `${linhas[j]} ${ linhas[j + 1]}`;
 
                     divCMD.appendChild(div);
                 } else {
-                    final = ",";
-                    divCMD.textContent = `'${linhas[j]}' ${ linhas[j + 1]} ${final}`;
+                    divCMD.textContent = `${linhas[j]} ${ linhas[j + 1]},`;
                 }
             }
         }
@@ -419,12 +425,6 @@ function nomeTabela() {
         } else {
             window.alert("Por favor, preencha o nome da tabela.");
         }
-        // if (nome.value !== "") {
-        //     window.alert("Use o botão adicionar a tabela");
-        // } else {
-        //     window.alert("Preencha o nome da tabela");
-        // }
-        
     }
 }
 
@@ -517,16 +517,16 @@ function copiarCMD() {
 function analisarBD() {
     const paragrafo = document.querySelector("#div-analisar");
     if (paragrafo) paragrafo.remove();
-    
+
     const menu_linha = document.querySelector("#menu-linha");
 
     const div = document.createElement("div");
     div.id = "div-analisar";
     div.className = "div-analisar";
 
-    menu_linha.appendChild(div);
-    const p = document.createElement("p");
-    p.textContent = "Analisando Banco de Dados";
-    div.appendChild(p); 
-    
+    // menu_linha.appendChild(div);
+    // const p = document.createElement("p");
+    // p.textContent = "Analisando Banco de Dados";
+    // div.appendChild(p); 
 }
+
