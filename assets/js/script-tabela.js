@@ -515,6 +515,9 @@ function copiarCMD() {
 }
 
 function analisarBD() {
+    const paragrafo = document.querySelector("#div-analisar");
+    if (paragrafo) paragrafo.remove();
+    
     const menu_linha = document.querySelector("#menu-linha");
 
     const div = document.createElement("div");
