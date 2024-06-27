@@ -267,3 +267,17 @@ select {
     /* border: 1px solid #aa1111; */
     padding-left: 25px;
 }
+
+#exemplo:hover {
+    background-color: #0065bd;
+    color: white;
+}
+
+#button-analyze {
+    background-color: #f4f811;
+}
+
+#button-analyze:hover {
+    background-color: #f4f811;
+    color: white;
+}

@@ -512,6 +512,4 @@ function copiarCMD() {
 
     const createCMD = document.querySelector("#createCMD").addEventListener("click", clipboardCopy());
     const tabelasCMD = document.querySelector("#tabelasCMD");
-
-    
 }
