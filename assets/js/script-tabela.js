@@ -114,7 +114,8 @@ function addHeaderCell(tabela, cabecalho) {
             divTh.style.backgroundColor = "#fafafa";
             
             const divThs = document.createElement(`div`);
-            divThs.id = `divThs`;
+            divThs.id = `divThs-${nomeTabela}-${cabecalho}`;
+            divThs.className = `divThs`;
             th.appendChild(divThs);
             const img = document.createElement("img");
             img.src = "assets/images/icon/delete.png";
@@ -133,7 +134,7 @@ function addHeaderCell(tabela, cabecalho) {
             return;
 
         } else {
-            const divThs = document.getElementById(`divThs`);
+            const divThs = document.getElementById(`divThs-${nomeTabela}-${cabecalho}`);
             divThs.remove();
 
             const divTh = document.querySelector("#" + nomeTabela + "-" + cabecalho);
@@ -151,7 +152,9 @@ function addHeaderCell(tabela, cabecalho) {
         if (doubleClick === 1) {
             divTh.style.border = "3px dashed #7A7777";
         } else {
-    
+            const divThs = document.getElementById(`divThs-${nomeTabela}-${cabecalho}`);
+            divThs.remove();
+            
             const divTh = document.querySelector("#" + nomeTabela + "-" + cabecalho);
             divTh.style.border = "none";
             divTh.style.boxsizing = "border-box";
