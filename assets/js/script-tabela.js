@@ -383,12 +383,17 @@ function novaPlanilha() {
                 let final;
 
                 if (j === linhas.length - 2) {
-                    final = ");";
+                    const div = document.createElement("div");
+                    div.id = `div-${linhas.id}-final`;
+                    div.className = "table_table-final";
+                    div.textContent = ");";
+                    divCMD.textContent = `'${linhas[j]}' ${ linhas[j + 1]}`;
+                    
+                    divCMD.appendChild(div);
                 } else {
                     final = ",";
+                    divCMD.textContent = `'${linhas[j]}' ${ linhas[j + 1]} ${final}`;
                 }
-
-                divCMD.textContent = `'${linhas[j]}' ${ linhas[j + 1]} ${final}`;
             }
         }
     }
