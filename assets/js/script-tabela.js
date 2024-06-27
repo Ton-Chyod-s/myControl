@@ -100,45 +100,68 @@ function addHeaderCell(tabela, cabecalho) {
 
     th.id = nomeTabela + "-" + cabecalho;
 
+    let click = false;
+    let doubleClick = 0;
+
     th.addEventListener("mouseenter", function() {
-        
-        const divTh = document.querySelector("#" + nomeTabela + "-" + cabecalho);
-        divTh.style.border = "1px solid #e9e9e9";
-        divTh.style.boxsizing = "border-box";
-        divTh.style.backgroundColor = "#fafafa";
-        
-        const divThs = document.createElement(`div`);
-        divThs.id = `divThs`;
-        th.appendChild(divThs);
-        const img = document.createElement("img");
-        img.src = "assets/images/icon/delete.png";
+        if (click === true) {
+            return;
 
-        divThs.appendChild(img);
+        } else {
+            const divTh = document.querySelector("#" + nomeTabela + "-" + cabecalho);
+            divTh.style.border = "1px solid #e9e9e9";
+            divTh.style.boxsizing = "border-box";
+            divTh.style.backgroundColor = "#fafafa";
+            
+            const divThs = document.createElement(`div`);
+            divThs.id = `divThs`;
+            th.appendChild(divThs);
+            const img = document.createElement("img");
+            img.src = "assets/images/icon/delete.png";
 
-        img.addEventListener("click", function() {
-            const th = document.getElementById(nomeTabela + "-" + cabecalho);
-            th.remove();
-        })
+            divThs.appendChild(img);
+
+            img.addEventListener("click", function() {
+                const th = document.getElementById(nomeTabela + "-" + cabecalho);
+                th.remove();
+            })
+        }
     })
 
     th.addEventListener("mouseleave", function() {
-        const divThs = document.getElementById(`divThs`);
-        divThs.remove();
+        if (click === true) {
+            return;
 
-        const divTh = document.querySelector("#" + nomeTabela + "-" + cabecalho);
-        divTh.style.border = "none";
-        divTh.style.boxsizing = "border-box";
-        divTh.style.backgroundColor = "white";
+        } else {
+            const divThs = document.getElementById(`divThs`);
+            divThs.remove();
 
+            const divTh = document.querySelector("#" + nomeTabela + "-" + cabecalho);
+            divTh.style.border = "none";
+            divTh.style.boxsizing = "border-box";
+            divTh.style.backgroundColor = "white";
+        }
     })
 
     th.addEventListener("click", function() {
+        click = true;
+        doubleClick++;
         const divTh = document.querySelector("#" + nomeTabela + "-" + cabecalho);
-        if (divTh) {
-            divTh.style.border = "3px dashed #7A7777";
-        }
-    });
 
+        if (doubleClick === 1) {
+            divTh.style.border = "3px dashed #7A7777";
+        } else {
+    
+            const divTh = document.querySelector("#" + nomeTabela + "-" + cabecalho);
+            divTh.style.border = "none";
+            divTh.style.boxsizing = "border-box";
+            divTh.style.backgroundColor = "white";
+            doubleClick = 0;
+            click = false;
+        }
+
+    });
+    
     if (cabecalho.includes(' ')) {
         cabecalho = cabecalho.replace(/\s+/g, "-");
     }
