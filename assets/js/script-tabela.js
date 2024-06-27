@@ -144,6 +144,7 @@ function addHeaderCell(tabela, cabecalho) {
         }
     })
 
+
     th.addEventListener("click", function() {
         click = true;
         doubleClick++;
@@ -154,7 +155,7 @@ function addHeaderCell(tabela, cabecalho) {
         } else {
             const divThs = document.getElementById(`divThs-${nomeTabela}-${cabecalho}`);
             divThs.remove();
-            
+
             const divTh = document.querySelector("#" + nomeTabela + "-" + cabecalho);
             divTh.style.border = "none";
             divTh.style.boxsizing = "border-box";
@@ -162,6 +163,8 @@ function addHeaderCell(tabela, cabecalho) {
             doubleClick = 0;
             click = false;
         }
+
+    
 
     });
     
@@ -180,7 +183,7 @@ function addHeaderCell(tabela, cabecalho) {
     const cmdSelect = document.createElement("select");
   
     const options = [
-        { text: "VACHAR(255) NOT NULL", selected: true },
+        { text: "VARCHAR(255) NOT NULL", selected: true },
         { text: "VARCHAR(255) DEFAULT NULL", selected: false },
         { text: "INT NOT NULL", selected: false },
         { text: "INT DEFAULT NULL", selected: false },
@@ -343,11 +346,15 @@ function novaPlanilha() {
         const createCMD = document.querySelector("#createCMD");
         const tabelasCMD = document.querySelector("#tabelasCMD");
         
-        // const nomeTabelaCMD = document.querySelector("#nomeTabelaCMD")
+        if (tabelasCMD.textContent !== "") {
+            tabelasCMD.textContent = "";
+            createCMD.textContent = "";
+        }
 
         const divTabelas = document.getElementsByClassName("table table-bordered table-hover");
         let nomeBancoDados = document.querySelector("#inputBancoDados").value;
 
+        nomeBancoDados = nomeBancoDados.trim().replace(/\s+/g, "_");
         if (!nomeBancoDados) {
             nomeBancoDados = "generico";
         }
