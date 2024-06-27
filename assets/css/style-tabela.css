@@ -247,7 +247,7 @@ select {
 
 }
 
-#tabelasCMD {
-    margin-top: 5px;
+.table_table-included{
+    padding-top: 2%;
     /* border: 1px solid #ccc; */
 }

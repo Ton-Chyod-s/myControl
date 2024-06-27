@@ -307,6 +307,7 @@ function novaPlanilha() {
     sql.onclick = function() {
         const createCMD = document.querySelector("#createCMD");
         const tabelasCMD = document.querySelector("#tabelasCMD");
+        
         const nomeTabelaCMD = document.querySelector("#nomeTabelaCMD")
 
         const divTabelas = document.getElementsByClassName("table table-bordered table-hover");
@@ -319,7 +320,7 @@ function novaPlanilha() {
         let tabelas = [];
         tabelas.id = nomeBancoDados;
         tabelas.className = "table table-model"
-
+        
         for (let i = 0; i < divTabelas.length; i++) {
             let nomeTabela = divTabelas[i].id;
             let colunas = [];
@@ -351,6 +352,7 @@ function novaPlanilha() {
             }
             tabelas.push(colunas);
         }
+        
         console.log(tabelas);
         
         createCMD.textContent = `CREATE DATABASE ${nomeBancoDados};`;
@@ -361,6 +363,7 @@ function novaPlanilha() {
             
             const div = document.createElement("div");
             div.id = `div-${linhas.id}`;
+            div.className = "table_table-included";
             tabelasCMD.appendChild(div);
 
             div.textContent = `CREATE TABLE ${linhas.id} (`;
@@ -378,7 +381,7 @@ function novaPlanilha() {
                     final = ",";
                 }
 
-                divCMD.textContent = ` '${linhas[j]}' ${ linhas[j + 1]} ${final}`;
+                divCMD.textContent = `'${   linhas[j]}' ${ linhas[j + 1]} ${final}`;
                 
 
                 
