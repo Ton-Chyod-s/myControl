@@ -513,3 +513,17 @@ function copiarCMD() {
     const createCMD = document.querySelector("#createCMD").addEventListener("click", clipboardCopy());
     const tabelasCMD = document.querySelector("#tabelasCMD");
 }
+
+function analisarBD() {
+    const menu_linha = document.querySelector("#menu-linha");
+
+    const div = document.createElement("div");
+    div.id = "div-analisar";
+    div.className = "div-analisar";
+
+    menu_linha.appendChild(div);
+    const p = document.createElement("p");
+    p.textContent = "Analisando Banco de Dados";
+    div.appendChild(p); 
+    
+}
