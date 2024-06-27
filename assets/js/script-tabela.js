@@ -388,7 +388,7 @@ function novaPlanilha() {
                     div.className = "table_table-final";
                     div.textContent = ");";
                     divCMD.textContent = `'${linhas[j]}' ${ linhas[j + 1]}`;
-                    
+
                     divCMD.appendChild(div);
                 } else {
                     final = ",";
@@ -413,11 +413,17 @@ function nomeTabela() {
 
         cont = 0;
     } else {
-        if (nome.value !== "") {
-            window.alert("Use o botão adicionar a tabela");
+        const nomeTabela = document.querySelector("#nomeTabela").value.trim();
+        if (nomeTabela) {
+            criarTabela();
         } else {
-            window.alert("Preencha o nome da tabela");
+            window.alert("Por favor, preencha o nome da tabela.");
         }
+        // if (nome.value !== "") {
+        //     window.alert("Use o botão adicionar a tabela");
+        // } else {
+        //     window.alert("Preencha o nome da tabela");
+        // }
         
     }
 }
