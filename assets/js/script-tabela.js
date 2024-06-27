@@ -30,7 +30,7 @@ function criarTabela() {
         } 
     } else {
         if (!cabecalho.includes('id')) {
-            const newCabecalho = 'id-' + nomeTabela.replace(/s\b/g, "") + ' ';
+            const newCabecalho = 'id_' + nomeTabela.replace(/s\b/g, "") + ' ';
             createNewTable(divTabela, nomeTabela, newCabecalho);
 
             const tabela = divTabela.querySelector("#" + nomeTabela);
@@ -71,7 +71,7 @@ function headerExists(tabela, cabecalho) {
         const thText = th.textContent.split(" ")[0];
 
         if (cabecalho.includes(' ')) {
-            cabecalho = cabecalho.replace(/\s+/g, "-");
+            cabecalho = cabecalho.replace(/\s+/g, "_");
         }
 
         if (thText === cabecalho) {
@@ -88,10 +88,10 @@ function addHeaderCell(tabela, cabecalho) {
     const th = document.createElement("th");
 
     cabecalho = cabecalho.toLowerCase();
-    cabecalho = cabecalho.replace("/", "-")
+    cabecalho = cabecalho.replace("/", "_")
 
     if (cabecalho.includes(' ')) {
-        cabecalho = cabecalho.replace(/\s+/g, "-");
+        cabecalho = cabecalho.replace(/\s+/g, "_");
     } else if ( cabecalho === "" ) {
         return; 
     }
@@ -203,10 +203,10 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
     const cmdSelect = document.createElement("select");
   
     const options = [
-        { text: "SERIAL UNIQUE NOT NULL", selected: true },
-        { text: "SERIAL UNIQUE", selected: false },
-        { text: "SERIAL NOT NULL", selected: false },
-        { text: "SERIAL", selected: false }
+        { text: "SERIAL UNIQUE NOT NULL PRIMARY KEY", selected: true },
+        { text: "SERIAL UNIQUE PRIMARY KEY", selected: false },
+        { text: "SERIAL NOT NULL PRIMARY KEY", selected: false },
+        { text: "SERIAL PRIMARY KEY", selected: false }
     ];
     
     for (let i = 0; i < options.length; i++) {
@@ -370,10 +370,20 @@ function novaPlanilha() {
                 divCMD.id = `div-${linhas[j]}`;
                 div.appendChild(divCMD);
                 
-                divCMD.textContent = ` ${linhas[j]} ${ linhas[j + 1]}, `;
+                let final;
+
+                if (j === linhas.length - 2) {
+                    final = ");";
+                } else {
+                    final = ",";
+                }
+
+                divCMD.textContent = ` '${linhas[j]}' ${ linhas[j + 1]} ${final}`;
+                
+
+                
             }
         }
-         
     }
 }
 
