@@ -251,3 +251,19 @@ select {
     padding-top: 2%;
     /* border: 1px solid #ccc; */
 }
+
+.table_table-included {
+    padding-left: 25px;
+    border: 1px solid #ccc;
+    display: inline-block;
+}
+
+.table_table-name {
+    padding-top: 5px;
+    /* border: 1px solid #ccc; */
+}
+
+.table_table-cmd {
+    /* border: 1px solid #aa1111; */
+    padding-left: 25px;
+}

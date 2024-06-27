@@ -363,14 +363,21 @@ function novaPlanilha() {
             
             const div = document.createElement("div");
             div.id = `div-${linhas.id}`;
-            div.className = "table_table-included";
             tabelasCMD.appendChild(div);
 
-            div.textContent = `CREATE TABLE ${linhas.id} (`;
-
+            
+            const divName = document.createElement(`div`);
+            divName.id = `div-${linhas.id}`; 
+            divName.className = "table_table-name";
+                
+            divName.textContent = `CREATE TABLE ${linhas.id} (`;
+            div.appendChild(divName);
+            
+            
             for (let j = 0; j < linhas.length; j += 2 ) {
                 const divCMD = document.createElement("div");
                 divCMD.id = `div-${linhas[j]}`;
+                divCMD.className = "table_table-cmd";
                 div.appendChild(divCMD);
                 
                 let final;
@@ -381,10 +388,7 @@ function novaPlanilha() {
                     final = ",";
                 }
 
-                divCMD.textContent = `'${   linhas[j]}' ${ linhas[j + 1]} ${final}`;
-                
-
-                
+                divCMD.textContent = `'${linhas[j]}' ${ linhas[j + 1]} ${final}`;
             }
         }
     }
@@ -487,4 +491,16 @@ function deletarLinha() {
 
 function deletarBD() {
     window.alert("Em desenvolvimento!");
+}
+
+function copiarCMD() {
+    async function clipboardCopy() {
+        let text = document.getElementById("cmd").value;
+        await navigator.clipboard.writeText(text);
+    }
+
+    const createCMD = document.querySelector("#createCMD").addEventListener("click", clipboardCopy());
+    const tabelasCMD = document.querySelector("#tabelasCMD");
+
+    
 }
