@@ -308,7 +308,7 @@ function novaPlanilha() {
         const createCMD = document.querySelector("#createCMD");
         const tabelasCMD = document.querySelector("#tabelasCMD");
         
-        const nomeTabelaCMD = document.querySelector("#nomeTabelaCMD")
+        // const nomeTabelaCMD = document.querySelector("#nomeTabelaCMD")
 
         const divTabelas = document.getElementsByClassName("table table-bordered table-hover");
         let nomeBancoDados = document.querySelector("#inputBancoDados").value;
