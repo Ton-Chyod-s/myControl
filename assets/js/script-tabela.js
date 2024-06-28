@@ -590,8 +590,6 @@ function deletarBD() {
     cont--;
 }
 
-
-
 function copiarCMD() {
     async function clipboardCopy() {
         let text = document.getElementById("cmd").value;
@@ -617,4 +615,3 @@ function analisarBD() {
     // p.textContent = "Analisando Banco de Dados";
     // div.appendChild(p); 
 }
-
