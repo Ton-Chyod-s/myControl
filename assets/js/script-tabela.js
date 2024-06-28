@@ -6,7 +6,7 @@ let colunas = [];
 let tabelaJson = {};
 
 function criarTabela() {
-    const divTabela = document.querySelector("#tabelas");
+    const divTabela = document.querySelector("#corpoTabelas");
     let nomeTabela;
     
     if (cont === 0) {
@@ -205,6 +205,7 @@ function addHeaderCell(tabela, cabecalho) {
 function createNewTable(divTabela, nomeTabela, cabecalho) {
     const headerDiv = document.createElement("header");
     headerDiv.id = `${nomeTabela}-header`;
+    headerDiv.className = "class-header";
     divTabela.appendChild(headerDiv);
 
     const label = document.createElement("label");
@@ -533,9 +534,38 @@ function deletarLinha() {
     window.alert("Em desenvolvimento!");
 }
 
+
 function deletarBD() {
-    window.alert("Em desenvolvimento!");
+    const tabelas = document.querySelector("#tabelas");
+    const divNomeTabela = document.querySelector("#divNomeTabela");
+
+    const existingTable = document.querySelector("#corpoTabelas");
+    if (existingTable) {
+        existingTable.remove();
+    }
+
+    const select = document.querySelector("#select");
+    const opSelect = select.options;
+    
+    for (let i = opSelect.length - 1; i >= 0; i--) {
+        opSelect[i].remove();
+    }
+    
+    const nomeTabela = document.createElement("imput");
+    nomeTabela.id = "nomeTabela";
+    nomeTabela.placeholder = "Nome da Tabela";
+
+
+    const header = document.createElement("header");
+    const tabela = document.createElement("table");
+    tabela.id = "corpoTabelas";
+
+    divNomeTabela.appendChild(nomeTabela);
+    tabelas.appendChild(header);
+    tabelas.appendChild(tabela);
 }
+
+
 
 function copiarCMD() {
     async function clipboardCopy() {
