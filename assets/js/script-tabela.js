@@ -575,11 +575,7 @@ function deletarBD() {
     }
 
 
-
-
-
-
-    tabelas = [];
+    
     cont--;
 }
 
