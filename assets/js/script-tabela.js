@@ -268,7 +268,13 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
     th.addEventListener("click", function() {
         // click = true;
         // doubleClick++;
-        // const divTh = document.querySelector("#" + nomeTabela + "-" + cabecalho);
+
+        const tabelas = document.querySelector(`#corpoTabelas`);
+        const table = tabelas.querySelector(`#${nomeTabela}`);
+        const trTh = table.querySelector(`tr th`);
+        console.log(trTh);
+        
+        trTh.style.border = "3px dashed #7A7777";
 
         // if (doubleClick === 1) {
         //     divTh.style.border = "3px dashed #7A7777";
@@ -283,7 +289,7 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
         //     doubleClick = 0;
         //     click = false;
         // }
-        window.alert("Em desenvolvimento!");
+        
     });
 }
 
