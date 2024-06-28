@@ -546,66 +546,63 @@ function deletarLinha() {
 
 function deletarBD() {
     const isClear = window.confirm("Deseja realmente limpar a planilha?");
+    if (!isClear) return;
 
-    if (isClear) {
-        const existingTable = document.querySelector("#corpoTabelas");
-        if (existingTable) {
-            existingTable.remove();
-            return;
-        }
+    const existingTable = document.querySelector("#corpoTabelas");
+    if (existingTable) existingTable.remove();
 
-        const divNomeTabela = document.querySelector("#divNomeTabela");
+    const divNomeTabela = document.querySelector("#divNomeTabela");
+    if (divNomeTabela) {
         divNomeTabela.style.width = "15%";
 
+        const createCMD = document.querySelector("#createCMD");
+        if (createCMD) createCMD.textContent = "";
 
-        if (divNomeTabela) {
-            const createCMD = document.querySelector("#createCMD");
-            if (createCMD) createCMD.textContent = "";
-            const nomeTabela = document.querySelector("#nomeTabela");
-            if (nomeTabela) nomeTabela.remove();
-        } 
-            
-        
+        const nomeTabela = document.querySelector("#nomeTabela");
+        if (nomeTabela) nomeTabela.remove();
+    }
 
-        const select = document.querySelector("#select");
+    const select = document.querySelector("#select");
+    if (select) {
         const opSelect = select.options;
-
         for (let i = opSelect.length - 1; i >= 0; i--) {
             opSelect[i].remove();
         }
+    }
 
-        const nomeTabela = document.createElement("input");
-        nomeTabela.id = "nomeTabela";
-        nomeTabela.placeholder = "Nome da Tabela";
-        nomeTabela.value = "";
+    const nomeTabelaInput = document.createElement("input");
+    nomeTabelaInput.id = "nomeTabela";
+    nomeTabelaInput.placeholder = "Nome da Tabela";
+    nomeTabelaInput.value = "";
 
-        const cabecalhoTabela = document.querySelector("#cabecalhoTabela");
-        cabecalhoTabela.value = "";
+    const cabecalhoTabela = document.querySelector("#cabecalhoTabela");
+    if (cabecalhoTabela) cabecalhoTabela.value = "";
 
-        const header = document.createElement("header");
-        const tabela = document.createElement("table");
-        tabela.style.border = "none";
-        tabela.id = "corpoTabelas";
+    const header = document.createElement("header");
+    const tabela = document.createElement("table");
+    tabela.style.border = "none";
+    tabela.id = "corpoTabelas";
 
-        divNomeTabela.appendChild(nomeTabela);
+    if (divNomeTabela) divNomeTabela.appendChild(nomeTabelaInput);
+
+    const tabelas = document.querySelector("#tabelas");
+    if (tabelas) {
         tabelas.appendChild(header);
         tabelas.appendChild(tabela);
+    }
 
+    const tabelasCMD = document.querySelector("#tabelasCMD");
+    if (tabelasCMD && tabelasCMD.textContent !== "") {
+        tabelasCMD.textContent = "";
         const createCMD = document.querySelector("#createCMD");
-        const tabelasCMD = document.querySelector("#tabelasCMD");
-        
-        if (tabelasCMD.textContent !== "") {
-            tabelasCMD.textContent = "";
-            createCMD.textContent = "";
-        }
+        if (createCMD) createCMD.textContent = "";
+    }
 
-        document.querySelector("header").remove();  
+    const headerElements = document.querySelectorAll("header");
+    headerElements.forEach(headerElement => headerElement.remove());
 
-        
 
-        cont--;
-
-    } 
+    if (typeof cont !== 'undefined') cont--;
 }
 
 function copiarCMD() {
