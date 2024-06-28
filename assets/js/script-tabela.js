@@ -276,19 +276,18 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
         const trTh = table.querySelector(`tr th`);
         console.log(trTh);
         
-       
         if (doubleClick === 1) {
             trTh.style.border = "3px dashed #7A7777";
         } else {
             trTh.style.border = "none";
             trTh.style.boxsizing = "border-box";
             trTh.style.backgroundColor = "white";
-            
+
             doubleClick = 0;
             click = false;
         }
-        
     });
+
 }
 
 function deletarTabela() {
@@ -438,14 +437,12 @@ function novaPlanilha() {
             div.id = `div-${linhas.id}`;
             tabelasCMD.appendChild(div);
 
-            
             const divName = document.createElement(`div`);
             divName.id = `div-${linhas.id}`; 
             divName.className = "table_table-name";
                 
             divName.textContent = `CREATE TABLE ${linhas.id} (`;
             div.appendChild(divName);
-            
             
             for (let j = 0; j < linhas.length; j += 2 ) {
                 const divCMD = document.createElement("div");
@@ -564,7 +561,6 @@ function tabelaExemplo() {
     
     }
 
-   
 function atualizarLinha() {
     window.alert("Em desenvolvimento!");
 }
@@ -572,7 +568,6 @@ function atualizarLinha() {
 function deletarLinha() {
     window.alert("Em desenvolvimento!");
 }
-
 
 function deletarBD() {
     const isClear = window.confirm("Deseja realmente limpar a planilha?");
@@ -631,7 +626,6 @@ function deletarBD() {
     const headerElements = document.querySelectorAll("header");
     headerElements.forEach(headerElement => headerElement.remove());
 
-
     if (typeof cont !== 'undefined') cont--;
 }
 
@@ -644,7 +638,6 @@ function copiarCMD() {
         console.error("Erro ao copiar texto: ", err);
     }
 }
-
 
 function analisarBD() {
     const paragrafo = document.querySelector("#div-analisar");
