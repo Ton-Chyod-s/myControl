@@ -207,6 +207,8 @@ function addHeaderCell(tabela, cabecalho) {
 }
 
 function createNewTable(divTabela, nomeTabela, cabecalho) {
+    let click = false;
+    let doubleClick = 0;
     const headerDiv = document.createElement("header");
     headerDiv.id = `${nomeTabela}-header`;
     headerDiv.className = "class-header";
@@ -266,29 +268,25 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
     divTabela.appendChild(tabela);
 
     th.addEventListener("click", function() {
-        // click = true;
-        // doubleClick++;
+        click = true;
+        doubleClick++;
 
         const tabelas = document.querySelector(`#corpoTabelas`);
         const table = tabelas.querySelector(`#${nomeTabela}`);
         const trTh = table.querySelector(`tr th`);
         console.log(trTh);
         
-        trTh.style.border = "3px dashed #7A7777";
-
-        // if (doubleClick === 1) {
-        //     divTh.style.border = "3px dashed #7A7777";
-        // } else {
-        //     const divThs = document.getElementById(`divThs-${nomeTabela}-${cabecalho}`);
-        //     divThs.remove();
-
-        //     const divTh = document.querySelector("#" + nomeTabela + "-" + cabecalho);
-        //     divTh.style.border = "none";
-        //     divTh.style.boxsizing = "border-box";
-        //     divTh.style.backgroundColor = "white";
-        //     doubleClick = 0;
-        //     click = false;
-        // }
+       
+        if (doubleClick === 1) {
+            trTh.style.border = "3px dashed #7A7777";
+        } else {
+            trTh.style.border = "none";
+            trTh.style.boxsizing = "border-box";
+            trTh.style.backgroundColor = "white";
+            
+            doubleClick = 0;
+            click = false;
+        }
         
     });
 }
