@@ -606,14 +606,15 @@ function deletarBD() {
 }
 
 function copiarCMD() {
-    async function clipboardCopy() {
-        let text = document.getElementById("cmd").value;
-        await navigator.clipboard.writeText(text);
+    const text = document.getElementById("idTabelaCMD").textContent.trim();
+    try {
+        navigator.clipboard.writeText(text);
+        console.log("Texto copiado com sucesso!");
+    } catch (err) {
+        console.error("Erro ao copiar texto: ", err);
     }
-
-    const createCMD = document.querySelector("#createCMD").addEventListener("click", clipboardCopy());
-    const tabelasCMD = document.querySelector("#tabelasCMD");
 }
+
 
 function analisarBD() {
     const paragrafo = document.querySelector("#div-analisar");
