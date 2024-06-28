@@ -538,44 +538,55 @@ function deletarLinha() {
 
 
 function deletarBD() {
+    function limpar_cmd() {
+        const createCMD = document.querySelector("#createCMD");
+        const tabelasCMD = document.querySelector("#tabelasCMD");
+        
+        if (tabelasCMD.textContent !== "") {
+            tabelasCMD.textContent = "";
+            createCMD.textContent = "";
+        }
+    }
+
     const tabelas = document.querySelector("#tabelas");
     const divNomeTabela = document.querySelector("#divNomeTabela");
     divNomeTabela.style.width = "15%";
 
-    const existingTable = document.querySelector("#corpoTabelas");
-    if (existingTable) {
-        existingTable.remove();
-    }
-
-    const select = document.querySelector("#select");
-    const opSelect = select.options;
-    
-    for (let i = opSelect.length - 1; i >= 0; i--) {
-        opSelect[i].remove();
-    }
-    
-    const nomeTabela = document.createElement("input");
-    nomeTabela.id = "nomeTabela";
-    nomeTabela.placeholder = "Nome da Tabela";
-
-    const header = document.createElement("header");
-    const tabela = document.createElement("table");
-    tabela.id = "corpoTabelas";
-
-    divNomeTabela.appendChild(nomeTabela);
-    tabelas.appendChild(header);
-    tabelas.appendChild(tabela);
-    
-    const createCMD = document.querySelector("#createCMD");
-    const tabelasCMD = document.querySelector("#tabelasCMD");
-    
-    if (tabelasCMD.textContent !== "") {
-        tabelasCMD.textContent = "";
+    if (divNomeTabela) {
+        const createCMD = document.querySelector("#createCMD");
         createCMD.textContent = "";
+        
+
+    } else {
+
+        const existingTable = document.querySelector("#corpoTabelas");
+        if (existingTable) {
+            existingTable.remove();
+        }
+
+        const select = document.querySelector("#select");
+        const opSelect = select.options;
+
+        for (let i = opSelect.length - 1; i >= 0; i--) {
+            opSelect[i].remove();
+        }
+
+        const nomeTabela = document.createElement("input");
+        nomeTabela.id = "nomeTabela";
+        nomeTabela.placeholder = "Nome da Tabela";
+
+        const header = document.createElement("header");
+        const tabela = document.createElement("table");
+        tabela.id = "corpoTabelas";
+
+        divNomeTabela.appendChild(nomeTabela);
+        tabelas.appendChild(header);
+        tabelas.appendChild(tabela);
+
+        limpar_cmd()
+
     }
 
-
-    
     cont--;
 }
 
