@@ -20,6 +20,8 @@ function criarTabela() {
     nomeTabela = nomeTabela.toLowerCase();
 
     if (nomeTabela === "") {
+        console.log(nomeTabela);
+
         window.alert("Por favor, preencha todos os campos disponiveis.");
         return;
     }
@@ -538,6 +540,7 @@ function deletarLinha() {
 function deletarBD() {
     const tabelas = document.querySelector("#tabelas");
     const divNomeTabela = document.querySelector("#divNomeTabela");
+    divNomeTabela.style.width = "15%";
 
     const existingTable = document.querySelector("#corpoTabelas");
     if (existingTable) {
@@ -551,10 +554,9 @@ function deletarBD() {
         opSelect[i].remove();
     }
     
-    const nomeTabela = document.createElement("imput");
+    const nomeTabela = document.createElement("input");
     nomeTabela.id = "nomeTabela";
     nomeTabela.placeholder = "Nome da Tabela";
-
 
     const header = document.createElement("header");
     const tabela = document.createElement("table");
