@@ -42,10 +42,8 @@ function criarTabela() {
             } 
 
             
-
         } else {
             createNewTable(divTabela, nomeTabela, cabecalho);
-
             
         }
 
