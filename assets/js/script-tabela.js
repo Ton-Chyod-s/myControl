@@ -565,6 +565,22 @@ function deletarBD() {
     divNomeTabela.appendChild(nomeTabela);
     tabelas.appendChild(header);
     tabelas.appendChild(tabela);
+    
+    const createCMD = document.querySelector("#createCMD");
+    const tabelasCMD = document.querySelector("#tabelasCMD");
+    
+    if (tabelasCMD.textContent !== "") {
+        tabelasCMD.textContent = "";
+        createCMD.textContent = "";
+    }
+
+
+
+
+
+
+    tabelas = [];
+    cont--;
 }
 
 
