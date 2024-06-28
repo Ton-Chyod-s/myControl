@@ -569,6 +569,7 @@ function deletarBD() {
 
     const header = document.createElement("header");
     const tabela = document.createElement("table");
+    tabela.style.border = "none";
     tabela.id = "corpoTabelas";
 
     divNomeTabela.appendChild(nomeTabela);
