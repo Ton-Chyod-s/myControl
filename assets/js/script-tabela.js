@@ -584,6 +584,7 @@ function deletarBD() {
         createCMD.textContent = "";
     }
 
+    document.querySelector("header").remove();  
 
     
 
