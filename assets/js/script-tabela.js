@@ -18,8 +18,6 @@ function criarTabela() {
     nomeTabela = nomeTabela.toLowerCase();
 
     if (nomeTabela === "") {
-        console.log(nomeTabela);
-
         window.alert("Por favor, preencha todos os campos disponiveis.");
         return;
     }
@@ -564,6 +562,10 @@ function deletarBD() {
     const nomeTabela = document.createElement("input");
     nomeTabela.id = "nomeTabela";
     nomeTabela.placeholder = "Nome da Tabela";
+    nomeTabela.value = "";
+
+    const cabecalhoTabela = document.querySelector("#cabecalhoTabela");
+    cabecalhoTabela.value = "";
 
     const header = document.createElement("header");
     const tabela = document.createElement("table");
@@ -580,6 +582,7 @@ function deletarBD() {
         tabelasCMD.textContent = "";
         createCMD.textContent = "";
     }
+
 
     
 
