@@ -1,5 +1,3 @@
-
-
 let cont = 0;
 let tabelas = [];
 let colunas = [];
