@@ -493,6 +493,16 @@ function confirmarPlanilha() {
 }
 
 function tabelaExemplo() {
+    const existingTable = document.querySelector("#corpoTabelas");
+    if (!existingTable) {
+        const corpoTabelas = document.createElement("div");
+        corpoTabelas.id = "corpoTabelas";
+        const body_table = document.querySelector("#table body-table");
+        body_table.appendChild(corpoTabelas);
+    }   
+
+    const div = document.querySelector("#corpoTabelas");
+
     const tabela_Exemplo = document.querySelector("#tabelaExemplo");
 
     if (tabela_Exemplo) {
@@ -500,7 +510,6 @@ function tabelaExemplo() {
         return;
     }
 
-    const div = document.querySelector("#tabelas");
     const nomeTabela = "tabelaExemplo";
     const headers = [
         "id-exemplo",
@@ -536,59 +545,67 @@ function deletarLinha() {
 
 
 function deletarBD() {
-    const tabelas = document.querySelector("#tabelas");
-    const divNomeTabela = document.querySelector("#divNomeTabela");
-    divNomeTabela.style.width = "15%";
+    const isClear = window.confirm("Deseja realmente limpar a planilha?");
 
-    if (divNomeTabela) {
-        const createCMD = document.querySelector("#createCMD");
-        if (createCMD) createCMD.textContent = "";
-        const nomeTabela = document.querySelector("#nomeTabela");
-        if (nomeTabela) nomeTabela.remove();
-    } 
+    if (isClear) {
+        const existingTable = document.querySelector("#corpoTabelas");
+        if (existingTable) {
+            existingTable.remove();
+            return;
+        }
+
+        const divNomeTabela = document.querySelector("#divNomeTabela");
+        divNomeTabela.style.width = "15%";
+
+
+        if (divNomeTabela) {
+            const createCMD = document.querySelector("#createCMD");
+            if (createCMD) createCMD.textContent = "";
+            const nomeTabela = document.querySelector("#nomeTabela");
+            if (nomeTabela) nomeTabela.remove();
+        } 
+            
         
-    const existingTable = document.querySelector("#corpoTabelas");
-    if (existingTable) {
-        existingTable.remove();
-    }
 
-    const select = document.querySelector("#select");
-    const opSelect = select.options;
+        const select = document.querySelector("#select");
+        const opSelect = select.options;
 
-    for (let i = opSelect.length - 1; i >= 0; i--) {
-        opSelect[i].remove();
-    }
+        for (let i = opSelect.length - 1; i >= 0; i--) {
+            opSelect[i].remove();
+        }
 
-    const nomeTabela = document.createElement("input");
-    nomeTabela.id = "nomeTabela";
-    nomeTabela.placeholder = "Nome da Tabela";
-    nomeTabela.value = "";
+        const nomeTabela = document.createElement("input");
+        nomeTabela.id = "nomeTabela";
+        nomeTabela.placeholder = "Nome da Tabela";
+        nomeTabela.value = "";
 
-    const cabecalhoTabela = document.querySelector("#cabecalhoTabela");
-    cabecalhoTabela.value = "";
+        const cabecalhoTabela = document.querySelector("#cabecalhoTabela");
+        cabecalhoTabela.value = "";
 
-    const header = document.createElement("header");
-    const tabela = document.createElement("table");
-    tabela.style.border = "none";
-    tabela.id = "corpoTabelas";
+        const header = document.createElement("header");
+        const tabela = document.createElement("table");
+        tabela.style.border = "none";
+        tabela.id = "corpoTabelas";
 
-    divNomeTabela.appendChild(nomeTabela);
-    tabelas.appendChild(header);
-    tabelas.appendChild(tabela);
+        divNomeTabela.appendChild(nomeTabela);
+        tabelas.appendChild(header);
+        tabelas.appendChild(tabela);
 
-    const createCMD = document.querySelector("#createCMD");
-    const tabelasCMD = document.querySelector("#tabelasCMD");
-    
-    if (tabelasCMD.textContent !== "") {
-        tabelasCMD.textContent = "";
-        createCMD.textContent = "";
-    }
+        const createCMD = document.querySelector("#createCMD");
+        const tabelasCMD = document.querySelector("#tabelasCMD");
+        
+        if (tabelasCMD.textContent !== "") {
+            tabelasCMD.textContent = "";
+            createCMD.textContent = "";
+        }
 
-    document.querySelector("header").remove();  
+        document.querySelector("header").remove();  
 
-    
+        
 
-    cont--;
+        cont--;
+
+    } 
 }
 
 function copiarCMD() {
