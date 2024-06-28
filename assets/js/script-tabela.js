@@ -30,6 +30,7 @@ function criarTabela() {
         const tabela = divTabela.querySelector("#" + nomeTabela);
         if (!headerExists(tabela, cabecalho)) {
             addHeaderCell(tabela, cabecalho);
+            document.querySelector("#divCabecalhoTabela > input").value = "";
             return;
         } 
     } else {
@@ -40,6 +41,7 @@ function criarTabela() {
             const tabela = divTabela.querySelector("#" + nomeTabela);
             if (!headerExists(tabela, cabecalho)) {
                 addHeaderCell(tabela, cabecalho);
+                document.querySelector("#divCabecalhoTabela > input").value = "";
                 
             } 
 
@@ -62,6 +64,9 @@ function criarTabela() {
     const divNomeTabela = document.querySelector("#divNomeTabela");
     divNomeTabela.style.width = "0%";
     divNomeTabela.style.border = "none";
+
+    document.querySelector("#divCabecalhoTabela > input").value = "";
+    
 }
 
 
@@ -165,9 +170,6 @@ function addHeaderCell(tabela, cabecalho) {
             doubleClick = 0;
             click = false;
         }
-
-    
-
     });
     
     if (cabecalho.includes(' ')) {
@@ -261,6 +263,7 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
     tabela.appendChild(thead);
     tabela.appendChild(tbody);
     divTabela.appendChild(tabela);
+
 }
 
 function deletarTabela() {
@@ -538,16 +541,6 @@ function deletarLinha() {
 
 
 function deletarBD() {
-    function limpar_cmd() {
-        const createCMD = document.querySelector("#createCMD");
-        const tabelasCMD = document.querySelector("#tabelasCMD");
-        
-        if (tabelasCMD.textContent !== "") {
-            tabelasCMD.textContent = "";
-            createCMD.textContent = "";
-        }
-    }
-
     const tabelas = document.querySelector("#tabelas");
     const divNomeTabela = document.querySelector("#divNomeTabela");
     divNomeTabela.style.width = "15%";
@@ -556,7 +549,6 @@ function deletarBD() {
         const createCMD = document.querySelector("#createCMD");
         createCMD.textContent = "";
         
-
     } else {
 
         const existingTable = document.querySelector("#corpoTabelas");
@@ -583,7 +575,13 @@ function deletarBD() {
         tabelas.appendChild(header);
         tabelas.appendChild(tabela);
 
-        limpar_cmd()
+        const createCMD = document.querySelector("#createCMD");
+        const tabelasCMD = document.querySelector("#tabelasCMD");
+        
+        if (tabelasCMD.textContent !== "") {
+            tabelasCMD.textContent = "";
+            createCMD.textContent = "";
+        }
 
     }
 
