@@ -67,7 +67,6 @@ function criarTabela() {
     
 }
 
-
 function hasTable(div, tableId) {
     return div.querySelector(`#${tableId}`) !== null;
 }
@@ -545,43 +544,44 @@ function deletarBD() {
 
     if (divNomeTabela) {
         const createCMD = document.querySelector("#createCMD");
-        createCMD.textContent = "";
+        if (createCMD) createCMD.textContent = "";
+        const nomeTabela = document.querySelector("#nomeTabela");
+        if (nomeTabela) nomeTabela.remove();
+    } 
         
-    } else {
-
-        const existingTable = document.querySelector("#corpoTabelas");
-        if (existingTable) {
-            existingTable.remove();
-        }
-
-        const select = document.querySelector("#select");
-        const opSelect = select.options;
-
-        for (let i = opSelect.length - 1; i >= 0; i--) {
-            opSelect[i].remove();
-        }
-
-        const nomeTabela = document.createElement("input");
-        nomeTabela.id = "nomeTabela";
-        nomeTabela.placeholder = "Nome da Tabela";
-
-        const header = document.createElement("header");
-        const tabela = document.createElement("table");
-        tabela.id = "corpoTabelas";
-
-        divNomeTabela.appendChild(nomeTabela);
-        tabelas.appendChild(header);
-        tabelas.appendChild(tabela);
-
-        const createCMD = document.querySelector("#createCMD");
-        const tabelasCMD = document.querySelector("#tabelasCMD");
-        
-        if (tabelasCMD.textContent !== "") {
-            tabelasCMD.textContent = "";
-            createCMD.textContent = "";
-        }
-
+    const existingTable = document.querySelector("#corpoTabelas");
+    if (existingTable) {
+        existingTable.remove();
     }
+
+    const select = document.querySelector("#select");
+    const opSelect = select.options;
+
+    for (let i = opSelect.length - 1; i >= 0; i--) {
+        opSelect[i].remove();
+    }
+
+    const nomeTabela = document.createElement("input");
+    nomeTabela.id = "nomeTabela";
+    nomeTabela.placeholder = "Nome da Tabela";
+
+    const header = document.createElement("header");
+    const tabela = document.createElement("table");
+    tabela.id = "corpoTabelas";
+
+    divNomeTabela.appendChild(nomeTabela);
+    tabelas.appendChild(header);
+    tabelas.appendChild(tabela);
+
+    const createCMD = document.querySelector("#createCMD");
+    const tabelasCMD = document.querySelector("#tabelasCMD");
+    
+    if (tabelasCMD.textContent !== "") {
+        tabelasCMD.textContent = "";
+        createCMD.textContent = "";
+    }
+
+    
 
     cont--;
 }
