@@ -41,8 +41,12 @@ function criarTabela() {
                 
             } 
 
+            
+
         } else {
             createNewTable(divTabela, nomeTabela, cabecalho);
+
+            
         }
 
         // Adicionar o nome da nova tabela ao select
@@ -52,6 +56,7 @@ function criarTabela() {
         option.text = nomeTabela;
         option.selected = true;
         tabelaSelect.appendChild(option);
+
     }
 
     const nome = document.querySelector("#nomeTabela");
@@ -228,6 +233,7 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
 
     const headerRow = document.createElement("tr");
     const th = document.createElement("th");
+    th.id = nomeTabela + "-" + cabecalho;
     th.textContent = cabecalho;
     headerRow.appendChild(th);
 
@@ -259,6 +265,26 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
     tabela.appendChild(tbody);
     divTabela.appendChild(tabela);
 
+    th.addEventListener("click", function() {
+        // click = true;
+        // doubleClick++;
+        // const divTh = document.querySelector("#" + nomeTabela + "-" + cabecalho);
+
+        // if (doubleClick === 1) {
+        //     divTh.style.border = "3px dashed #7A7777";
+        // } else {
+        //     const divThs = document.getElementById(`divThs-${nomeTabela}-${cabecalho}`);
+        //     divThs.remove();
+
+        //     const divTh = document.querySelector("#" + nomeTabela + "-" + cabecalho);
+        //     divTh.style.border = "none";
+        //     divTh.style.boxsizing = "border-box";
+        //     divTh.style.backgroundColor = "white";
+        //     doubleClick = 0;
+        //     click = false;
+        // }
+        window.alert("Em desenvolvimento!");
+    });
 }
 
 function deletarTabela() {
