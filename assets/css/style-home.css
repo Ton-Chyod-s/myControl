@@ -1,3 +1,4 @@
+/* Estilos globais */
 html {
     font-family: 'Open Sans', Helvetica, sans-serif;
     line-height: 1.6;
@@ -9,9 +10,9 @@ body {
     background-color: #fff;
 }
 
+/* Cabeçalho */
 #cabecalhoSite {
     background: linear-gradient(to left, #344c64, #2B3F53);
-    padding: 4px; 
     color: #fff;
     font-size: 1.0em;
     position: fixed;
@@ -19,16 +20,16 @@ body {
     top: 0;
     z-index: 1000;
     display: flex;
-    justify-content: space-between; /* Adiciona espaçamento entre os itens */
-    align-items: center; /* Centraliza verticalmente os itens */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; /* Ajuste de espaçamento interno */
 }
 
 #ladoEsquerdo {
+    width: 150px;
     display: flex;
-    align-items: center;    /* Alinha os itens no centro verticalmente */
-    justify-content: center;/* Alinha os itens no centro horizontalmente */
-    /* border: 1px solid #DEE2E6; */
-    width: 150px;  /* Defina a largura desejada */
+    align-items: center;
+    justify-content: center;
 }
 
 #cadastrar {
@@ -36,50 +37,47 @@ body {
     background-color: #456585;
     text-align: center;
     width: 100px;
-    margin: 1px;
-    border: 0.1px solid #fff;
+    margin: 0 5px; /* Ajuste de margem */
+    border: 1px solid #fff;
     border-radius: 15px;
-    padding: 5px 10px; /* Padding para melhor aparência */
+    padding: 5px 10px;
 }
 
-/* Estilos para o elemento de login */
 #login {
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    display: inline-block;
     padding-right: 15px;
-    text-decoration: none;  /* Remove sublinhado */
-    color: inherit;         /* Mantém a cor herdada do elemento pai */
-    text-align: center;     /* Alinha o texto ao centro */
-    display: inline-block;  /* Torna o elemento inline-block para facilitar o alinhamento */
 }
 
 #cadastrar:hover {
     background-color: #fff;
     color: #2B3F53;
 }
+
 /* Estilos globais para links */
 a {
-    color: inherit;         /* Mantém a cor herdada do elemento pai */
-    text-decoration: none;  /* Remove sublinhado */
+    color: inherit;
+    text-decoration: none;
 }
 
-/* Estilos para alinhar os elementos de login e cadastro */
 .container {
+    width: 235px;
     display: flex;
-    align-items: center;    /* Alinha os itens no centro verticalmente */
-    justify-content: center;/* Alinha os itens no centro horizontalmente */
-    /* border: 1px solid #DEE2E6; */
-    width: 235px;  /* Defina a largura desejada */
-    
+    align-items: center;
+    justify-content: center;
 }
 
-/* Menu lado esquerdo */
+/* Menu lateral esquerdo */
 #menuSite {
-    background: #F6FAFF;;
+    background: #F6FAFF;
     padding: 8px;
     font-size: 1em;
     width: 25px;
     height: 100%;
     position: fixed;
-    top: 45px; /* Adjust based on header height */
+    top: 45px;
     left: 0;
 }
 
@@ -89,49 +87,35 @@ a {
 }
 
 #buttonMenu, #buttonMenu1, #buttonMenu2, #buttonMenu3 {
-    display: block;
     width: 100%;
-    padding: -2px;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding: 10px 0; /* Ajuste de padding */
     border: 1px solid #D5DDE8;
     font-size: 0.9em;
     background-color: #F6FAFF;
 }
 
-/* Texto antes do iframe */
+/* Informações do site */
 #infoSite {
-    margin-top: 48px; 
-    margin-left: 100px; 
+    margin-top: 48px;
+    margin-left: 100px;
     margin-right: 50px;
-    margin-bottom: -20px;
-    justify-content: space-between;
     padding: 10px;
-    padding-bottom: none;
-    transition: margin-left 0.5s;
     color: #292B2C;
-    /* border: 1px solid #DEE2E6; */
 }
 
-/* Corpo site e iframe */
+/* Corpo do site e iframe */
 main {
-    margin-left: 100px; 
-    padding: 20px;
-    margin-top: 1px; 
+    margin-left: 100px;
     margin-right: 50px;
-    transition: margin-left 0.5s;
-}
-
-#corpoSite {
-    transition: margin-left 0.5s;
+    padding: 20px;
     color: #292B2C;
-    /* border: 1px solid #DEE2E6; */
 }
 
 #formulario {
     border: 1px solid #DEE2E6;
     border-radius: 5px;
     box-shadow: 0 0 5px #e3e3e3;
+    width: 100%;
 }
 
 /* Rodapé */
@@ -140,6 +124,11 @@ footer {
     text-align: center;
     position: fixed;
     bottom: 0;
+    width: 100%;
+    background-color: #F8F9FA;
+    border-top: 1px solid #DEE2E6;
+}
+
     width: 100%;
     background-color: #F8F9FA;
     border-top: 1px solid #DEE2E6;
