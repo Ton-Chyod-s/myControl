@@ -112,10 +112,11 @@ main {
 }
 
 #formulario {
-    border: 1px solid #DEE2E6;
-    border-radius: 5px;
+    border: none; /* Remover bordas para evitar espaço extra */
     box-shadow: 0 0 5px #e3e3e3;
     width: 100%;
+    height: auto; /* Altura automática baseada no conteúdo */
+    box-sizing: border-box; /* Inclui bordas e padding no tamanho total */
 }
 
 /* Rodapé */
