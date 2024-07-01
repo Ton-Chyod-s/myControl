@@ -18,6 +18,8 @@ function criarTabela() {
     nomeTabela = nomeTabela.toLowerCase();
 
     if (nomeTabela === "") {
+        console.log(cont);
+        
         window.alert("Por favor, preencha todos os campos disponiveis.");
         return;
     }
@@ -285,7 +287,6 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
             click = false;
         }
     });
-
 }
 
 function deletarTabela() {
@@ -371,96 +372,104 @@ function novaPlanilha() {
     divSql.appendChild(sql);
 
     sql.onclick = function() {
-        const createCMD = document.querySelector("#createCMD");
-        const tabelasCMD = document.querySelector("#tabelasCMD");
-        
-        if (tabelasCMD.textContent !== "") {
-            tabelasCMD.textContent = "";
-            createCMD.textContent = "";
-        }
+        const corpoTabela = document.querySelector("#corpoTabelas").textContent.trim();
 
-        const divTabelas = document.getElementsByClassName("table table-bordered table-hover");
-        let nomeBancoDados = document.querySelector("#inputBancoDados").value;
+        if ( corpoTabela ) {
+            const createCMD = document.querySelector("#createCMD");
+            const tabelasCMD = document.querySelector("#tabelasCMD");
+            
+            if (tabelasCMD.textContent !== "") {
+                tabelasCMD.textContent = "";
+                createCMD.textContent = "";
+            }
 
-        nomeBancoDados = nomeBancoDados.trim().replace(/\s+/g, "_");
-        if (!nomeBancoDados) {
-            nomeBancoDados = "generico";
-        }
+            const divTabelas = document.getElementsByClassName("table table-bordered table-hover");
+            let nomeBancoDados = document.querySelector("#inputBancoDados").value;
 
-        let tabelas = [];
-        tabelas.id = nomeBancoDados;
-        tabelas.className = "table table-model"
-        
-        for (let i = 0; i < divTabelas.length; i++) {
-            let nomeTabela = divTabelas[i].id;
-            let colunas = [];
-            let cmdColuna = [];
-            let nomeColuna;
+            nomeBancoDados = nomeBancoDados.trim().replace(/\s+/g, "_");
+            if (!nomeBancoDados) {
+                nomeBancoDados = "generico";
+            }
 
-            const tabela = divTabelas[i];
-            const headers = tabela.querySelectorAll("tr th");
-            const cmdOptions = tabela.querySelectorAll("tr th div select option:checked");
+            let tabelas = [];
+            tabelas.id = nomeBancoDados;
+            tabelas.className = "table table-model"
+            
+            for (let i = 0; i < divTabelas.length; i++) {
+                let nomeTabela = divTabelas[i].id;
+                let colunas = [];
+                let cmdColuna = [];
+                let nomeColuna;
 
-            for (let j = 0; j < headers.length; j++) {
-                let header = headers[j].textContent;
-                
-                nomeColuna = header.split(" ")[0];
-                
-                if ( header.includes(nomeColuna) ) {
-                    colunas.id = nomeTabela;
-                    colunas.push(nomeColuna);
+                const tabela = divTabelas[i];
+                const headers = tabela.querySelectorAll("tr th");
+                const cmdOptions = tabela.querySelectorAll("tr th div select option:checked");
+
+                for (let j = 0; j < headers.length; j++) {
+                    let header = headers[j].textContent;
                     
-                    // Adicionar os cmd
-                    if (cmdColuna.id === undefined) {
-                        cmdColuna.id = nomeColuna;
-                        cmdColuna.push(cmdOptions[j].textContent);
-                        colunas.push(cmdColuna);
-                        cmdColuna = [];
+                    nomeColuna = header.split(" ")[0];
+                    
+                    if ( header.includes(nomeColuna) ) {
+                        colunas.id = nomeTabela;
+                        colunas.push(nomeColuna);
+                        
+                        // Adicionar os cmd
+                        if (cmdColuna.id === undefined) {
+                            cmdColuna.id = nomeColuna;
+                            cmdColuna.push(cmdOptions[j].textContent);
+                            colunas.push(cmdColuna);
+                            cmdColuna = [];
+                        }
+                    }
+                    delete nomeColuna.textContent;
+                }
+                tabelas.push(colunas);
+            }
+            
+            console.log(tabelas);
+            
+            createCMD.textContent = `CREATE DATABASE ${nomeBancoDados};`;
+            
+
+            for (let i = 0; i < tabelas.length; i++) {
+                const linhas = tabelas[i];
+                
+                const div = document.createElement("div");
+                div.id = `div-${linhas.id}`;
+                tabelasCMD.appendChild(div);
+
+                const divName = document.createElement(`div`);
+                divName.id = `div-${linhas.id}`; 
+                divName.className = "table_table-name";
+                    
+                divName.textContent = `CREATE TABLE ${linhas.id} (`;
+                div.appendChild(divName);
+                
+                for (let j = 0; j < linhas.length; j += 2 ) {
+                    const divCMD = document.createElement("div");
+                    divCMD.id = `div-${linhas[j]}`;
+                    divCMD.className = "table_table-cmd";
+                    div.appendChild(divCMD);
+
+                    if (j === linhas.length - 2) {
+                        const div = document.createElement("div");
+                        div.id = `div-${linhas.id}-final`;
+                        div.className = "table_table-final";
+                        div.textContent = ");";
+                        divCMD.textContent = `${linhas[j]} ${ linhas[j + 1]}`;
+
+                        divCMD.appendChild(div);
+                    } else {
+                        divCMD.textContent = `${linhas[j]} ${ linhas[j + 1]},`;
                     }
                 }
-                delete nomeColuna.textContent;
             }
-            tabelas.push(colunas);
+        } else {
+            window.alert("Por favor, adicione uma tabela para criar o banco de dados.");
+        
         }
-        
-        console.log(tabelas);
-        
-        createCMD.textContent = `CREATE DATABASE ${nomeBancoDados};`;
-        
 
-        for (let i = 0; i < tabelas.length; i++) {
-            const linhas = tabelas[i];
-            
-            const div = document.createElement("div");
-            div.id = `div-${linhas.id}`;
-            tabelasCMD.appendChild(div);
-
-            const divName = document.createElement(`div`);
-            divName.id = `div-${linhas.id}`; 
-            divName.className = "table_table-name";
-                
-            divName.textContent = `CREATE TABLE ${linhas.id} (`;
-            div.appendChild(divName);
-            
-            for (let j = 0; j < linhas.length; j += 2 ) {
-                const divCMD = document.createElement("div");
-                divCMD.id = `div-${linhas[j]}`;
-                divCMD.className = "table_table-cmd";
-                div.appendChild(divCMD);
-
-                if (j === linhas.length - 2) {
-                    const div = document.createElement("div");
-                    div.id = `div-${linhas.id}-final`;
-                    div.className = "table_table-final";
-                    div.textContent = ");";
-                    divCMD.textContent = `${linhas[j]} ${ linhas[j + 1]}`;
-
-                    divCMD.appendChild(div);
-                } else {
-                    divCMD.textContent = `${linhas[j]} ${ linhas[j + 1]},`;
-                }
-            }
-        }
     }
 }
 
@@ -624,7 +633,7 @@ function deletarBD() {
     const headerElements = document.querySelectorAll("header");
     headerElements.forEach(headerElement => headerElement.remove());
 
-    if (typeof cont !== 'undefined') cont--;
+    if (typeof cont !== 'undefined' && cont !== 0) cont--;
 }
 
 function copiarCMD() {

@@ -128,6 +128,6 @@ function criarIframe(text) {
     }
 
     iframe.style.width = "100%";
-    iframe.style.height = "600px";
+    iframe.style.height = "auto";
     section.appendChild(iframe);
 }

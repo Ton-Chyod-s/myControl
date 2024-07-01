@@ -111,8 +111,7 @@ main {
     color: #292B2C;
 }
 
-#formulario {
-    border: none; /* Remover bordas para evitar espaço extra */
+#formulario {    border: none; /* Remover bordas para evitar espaço extra */
     box-shadow: 0 0 5px #e3e3e3;
     width: 100%;
     height: auto; /* Altura automática baseada no conteúdo */
@@ -125,11 +124,6 @@ footer {
     text-align: center;
     position: fixed;
     bottom: 0;
-    width: 100%;
-    background-color: #F8F9FA;
-    border-top: 1px solid #DEE2E6;
-}
-
     width: 100%;
     background-color: #F8F9FA;
     border-top: 1px solid #DEE2E6;
