@@ -320,13 +320,13 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
                 if ( colUm !== colDois ) {
                     const cmdSQL = 'FOREIGN KEY (' + colunaUm + ') REFERENCES ' + colDois + '(' + colunaDois + '),';
 
-                    const divTh = document.querySelector("#" + colunaUm );
+                    const divColTh = document.querySelector("#" + colunaUm );
                     const divForeign = document.createElement("div");
                     divForeign.id = `div-${colunaUm}-foreign`;
                     divForeign.className = `div-foreign-${colunaUm}`;
                     divForeign.value = cmdSQL;
 
-                    divTh.appendChild(divForeign);
+                    divColTh.appendChild(divForeign);
 
                     console.log(cmdSQL);
                 } 
