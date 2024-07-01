@@ -175,15 +175,17 @@ function addHeaderCell(tabela, cabecalho) {
             const valorColuna = divTh.textContent.replace(/\s+/g, " ").split(" ")[0];
 
             if ( verificacao === 0 ) {
-                colunaUm.push(valorColuna);
+                referes.push(valorColuna);
+                colunaUm.push(referes);
+                
+                referes = [];
                 verificacao++;
             } else {
-                colunaDois.push(valorColuna);
+                referes.push(valorColuna);
                 verificacao = 0;
             }
 
-            console.log(colunaUm);
-            console.log(colunaDois);
+            console.log(referes);
 
 
         } else {
