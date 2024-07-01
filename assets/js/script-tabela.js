@@ -324,7 +324,7 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
                     const cmdSQL = 'FOREIGN KEY (' + colunaUm + ') REFERENCES ' + colDois + '(' + colunaDois + ')';
 
                     const divColTh = document.querySelector("#div-" + idUm + "-final");
-                    divColTh.textContent = divColTh.textContent.replace(");", ",");
+                    divColTh.textContent = divColTh.textContent.replace(");", " ");
                     const divForeign = document.createElement("div");
                     divForeign.id = `div-${colunaUm}-foreign`;
                     divForeign.textContent = cmdSQL;
@@ -336,6 +336,8 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
                     divForeignFinal.textContent = ");";
 
                     divForeign.appendChild(divForeignFinal);
+                    colunaUm = [];
+                    colunaDois = [];
                 } 
             }
 
