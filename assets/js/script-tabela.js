@@ -319,11 +319,9 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
                 const colUm = colunaUm[0].id
                 const colDois = colunaDois[0].id
 
-          
-
                 if ( colUm !== colDois ) {
                     const cmdSQL = 'FOREIGN KEY (' + colunaUm + ') REFERENCES ' + colDois + '(' + colunaDois + ');';
-
+                    
                     console.log(cmdSQL);
                 } 
             }
