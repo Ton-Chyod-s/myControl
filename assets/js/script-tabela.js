@@ -318,11 +318,15 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
                 const colDois = colunaDois[0].id
 
                 if ( colUm !== colDois ) {
-                    const cmdSQL = 'FOREIGN KEY (' + colunaUm + ') REFERENCES ' + colDois + '(' + colunaDois + ');';
+                    const cmdSQL = 'FOREIGN KEY (' + colunaUm + ') REFERENCES ' + colDois + '(' + colunaDois + '),';
 
-                    const divTh = document.querySelector("#div-" + colunaUm + ";");
+                    const divTh = document.querySelector("#" + colunaUm );
+                    const divForeign = document.createElement("div");
+                    divForeign.id = `div-${colunaUm}-foreign`;
+                    divForeign.className = `div-foreign-${colunaUm}`;
+                    divForeign.value = cmdSQL;
 
-
+                    divTh.appendChild(divForeign);
 
                     console.log(cmdSQL);
                 } 
