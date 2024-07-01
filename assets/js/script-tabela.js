@@ -76,7 +76,7 @@ function criarTabela() {
     divNomeTabela.style.border = "none";
 
     document.querySelector("#divCabecalhoTabela > input").value = "";
-    
+
 }
 
 function hasTable(div, tableId) {
@@ -172,22 +172,17 @@ function addHeaderCell(tabela, cabecalho) {
         if (doubleClick === 1) {
             divTh.style.border = "3px dashed #7A7777";
 
-            const valorColuna = divTh.textContent.replace(/\s+/g, " ").split(" ")[0];
+            const valorColuna = divTh.textContent.split(" ")[0];
 
-            if ( verificacao === 0 ) {
-                referes.push(valorColuna);
-                colunaUm.push(referes);
-                
-                referes = [];
-                verificacao++;
-            } else {
-                referes.push(valorColuna);
-                verificacao = 0;
+            referes.id = nomeTabela;
+            referes.push(valorColuna);
+
+            if ( colunaDois.length === 0 ) {
+                colunaDois.push(referes);
+                referes = [];   
             }
 
-            console.log(referes);
-
-
+        
         } else {
             const divThs = document.getElementById(`divThs-${nomeTabela}-${cabecalho}`);
             divThs.remove();
@@ -306,10 +301,22 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
         const tabelas = document.querySelector(`#corpoTabelas`);
         const table = tabelas.querySelector(`#${nomeTabela}`);
         const trTh = table.querySelector(`tr th`);
-        console.log(trTh);
+        
         
         if (doubleClick === 1) {
             trTh.style.border = "3px dashed #7A7777";
+            nomeColuna = trTh.textContent.split(" ")[0];
+            referes.id = nomeTabela;
+            referes.push(nomeColuna);
+
+            if ( colunaUm.length === 0 ) {
+                colunaUm.push(referes);
+                referes = [];   
+            }
+
+       
+
+
         } else {
             trTh.style.border = "none";
             trTh.style.boxsizing = "border-box";
@@ -404,6 +411,8 @@ function novaPlanilha() {
     divSql.appendChild(sql);
 
     sql.onclick = function() {
+        console.log(colunaUm);
+
         const corpoTabela = document.querySelector("#corpoTabelas").textContent.trim();
 
         if ( corpoTabela ) {
