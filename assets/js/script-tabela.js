@@ -3,15 +3,24 @@ let tabelas = [];
 let colunas = [];
 let tabelaJson = {};
 
+let referes = [];
+let colunaUm = [];
+let colunaDois = [];
+let verificacao = 0;
+
+
+
 function criarTabela() {
     const divTabela = document.querySelector("#corpoTabelas");
     let nomeTabela;
     
     if (cont === 0) {
         nomeTabela = document.querySelector("#nomeTabela").value.trim().replace(/\s+/g, "_");
+
         cont++;
     } else {
         nomeTabela = document.querySelector("#select").value.trim().replace(/\s+/g, "_");
+        
     }
 
     const cabecalho = document.querySelector("#cabecalhoTabela").value.trim();
@@ -133,7 +142,10 @@ function addHeaderCell(tabela, cabecalho) {
                 const th = document.getElementById(nomeTabela + "-" + cabecalho);
                 th.remove();
             })
+
+            
         }
+
     })
 
     th.addEventListener("mouseleave", function() {
@@ -142,7 +154,7 @@ function addHeaderCell(tabela, cabecalho) {
 
         } else {
             const divThs = document.getElementById(`divThs-${nomeTabela}-${cabecalho}`);
-            divThs.remove();
+            if (divThs) divThs.remove();
 
             const divTh = document.querySelector("#" + nomeTabela + "-" + cabecalho);
             divTh.style.border = "none";
@@ -159,6 +171,21 @@ function addHeaderCell(tabela, cabecalho) {
 
         if (doubleClick === 1) {
             divTh.style.border = "3px dashed #7A7777";
+
+            const valorColuna = divTh.textContent.replace(/\s+/g, " ").split(" ")[0];
+
+            if ( verificacao === 0 ) {
+                colunaUm.push(valorColuna);
+                verificacao++;
+            } else {
+                colunaDois.push(valorColuna);
+                verificacao = 0;
+            }
+
+            console.log(colunaUm);
+            console.log(colunaDois);
+
+
         } else {
             const divThs = document.getElementById(`divThs-${nomeTabela}-${cabecalho}`);
             divThs.remove();
@@ -170,6 +197,9 @@ function addHeaderCell(tabela, cabecalho) {
             doubleClick = 0;
             click = false;
         }
+
+        
+
     });
     
     if (cabecalho.includes(' ')) {
