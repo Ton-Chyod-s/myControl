@@ -317,22 +317,27 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
                 const colUm = colunaUm[0].id
                 const colDois = colunaDois[0].id
 
-                if ( colUm !== colDois ) {
-                    const cmdSQL = 'FOREIGN KEY (' + colunaUm + ') REFERENCES ' + colDois + '(' + colunaDois + '),';
+                const idUm = colunaUm[0].id;
+                const idDois = colunaDois[0].id;
 
-                    const divColTh = document.querySelector("#" + colunaUm );
+                if ( colUm !== colDois ) {
+                    const cmdSQL = 'FOREIGN KEY (' + colunaUm + ') REFERENCES ' + colDois + '(' + colunaDois + ')';
+
+                    const divColTh = document.querySelector("#div-" + idUm + "-final");
+                    divColTh.textContent = divColTh.textContent.replace(");", ",");
                     const divForeign = document.createElement("div");
                     divForeign.id = `div-${colunaUm}-foreign`;
-                    divForeign.className = `div-foreign-${colunaUm}`;
-                    divForeign.value = cmdSQL;
+                    divForeign.textContent = cmdSQL;
 
                     divColTh.appendChild(divForeign);
+                    
+                    const divForeignFinal = document.createElement("div");
+                    divForeignFinal.id = `div-${colunaUm}-foreign-final`;
+                    divForeignFinal.textContent = ");";
 
-                    console.log(cmdSQL);
+                    divForeign.appendChild(divForeignFinal);
                 } 
             }
-       
-
 
         } else {
             trTh.style.border = "none";
