@@ -177,20 +177,13 @@ function addHeaderCell(tabela, cabecalho) {
             referes.id = nomeTabela;
             referes.push(valorColuna);
 
-            if ( colunaDois.length === 0 ) {
-                colunaDois.push(referes);
+            if ( colunaUm.length === 0 ) {
+                colunaUm.push(referes);
                 referes = [];   
             }
 
-            if ( colunaUm.length > 0 && colunaDois.length > 0 ) {
-                if ( colunaUm[0].id === colunaDois[0].id ) {
-                    verificacao = 1;
-                } else {
-                    verificacao = 0;
-                }
-            }
+            
 
-        
         } else {
             const divThs = document.getElementById(`divThs-${nomeTabela}-${cabecalho}`);
             divThs.remove();
@@ -317,11 +310,23 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
             referes.id = nomeTabela;
             referes.push(nomeColuna);
 
-            if ( colunaUm.length === 0 ) {
-                colunaUm.push(referes);
+            if ( colunaDois.length === 0 ) {
+                colunaDois.push(referes);
                 referes = [];   
             }
 
+            if ( colunaUm.length > 0 && colunaDois.length > 0 ) {
+                const colUm = colunaUm[0].id
+                const colDois = colunaDois[0].id
+
+          
+
+                if ( colUm !== colDois ) {
+                    const cmdSQL = 'ALTER TABLE ' + colUm + ' ADD FOREIGN KEY (' + colunaUm + ') REFERENCES ' + colDois + '(' + colunaDois + ');';
+
+                    console.log(cmdSQL);
+                } 
+            }
        
 
 
