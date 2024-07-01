@@ -322,7 +322,7 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
           
 
                 if ( colUm !== colDois ) {
-                    const cmdSQL = 'ALTER TABLE ' + colUm + ' ADD FOREIGN KEY (' + colunaUm + ') REFERENCES ' + colDois + '(' + colunaDois + ');';
+                    const cmdSQL = 'FOREIGN KEY (' + colunaUm + ') REFERENCES ' + colDois + '(' + colunaDois + ');';
 
                     console.log(cmdSQL);
                 } 
