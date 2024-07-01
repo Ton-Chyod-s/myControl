@@ -182,6 +182,14 @@ function addHeaderCell(tabela, cabecalho) {
                 referes = [];   
             }
 
+            if ( colunaUm.length > 0 && colunaDois.length > 0 ) {
+                if ( colunaUm[0].id === colunaDois[0].id ) {
+                    verificacao = 1;
+                } else {
+                    verificacao = 0;
+                }
+            }
+
         
         } else {
             const divThs = document.getElementById(`divThs-${nomeTabela}-${cabecalho}`);
