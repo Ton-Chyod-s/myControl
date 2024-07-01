@@ -6,7 +6,7 @@ let tabelaJson = {};
 let referes = [];
 let colunaUm = [];
 let colunaDois = [];
-let verificacao = 0;
+
 
 function criarTabela() {
     const divTabela = document.querySelector("#corpoTabelas");
@@ -327,12 +327,19 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
                     divColTh.textContent = divColTh.textContent.replace(");", "");
 
                     const divForeign = document.createElement("div");
-                    divForeign.id = `div-${idDois}-foreign`;
-                    divForeign.className = `div-${idDois}-foreign`;
-                    
-                    divColTh.appendChild(divForeign);
+                    divForeign.id = `colUm-FOREING-colDois`
 
-                    
+                    const constdivForeignFinal = document.createElement("div");
+
+                    if ( divColTh.textContent != null ) {
+                        constdivForeignFinal.textContent = ","
+                    }
+
+                    divForeign.textContent = cmdSQL
+
+                    divColTh.appendChild(divForeign);
+                    divForeign.appendChild(constdivForeignFinal);   
+                 
 
                     // if ( divForeign.length === 1 ) {
                     //     divForeign.textContent = cmdSQL + ",";
@@ -343,6 +350,7 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
 
                     colunaUm = [];
                     colunaDois = [];
+                    
                 } 
             }
 
