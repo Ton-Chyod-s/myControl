@@ -324,22 +324,28 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
                     const cmdSQL = 'FOREIGN KEY (' + colunaUm + ') REFERENCES ' + colDois + '(' + colunaDois + ')';
 
                     const divColTh = document.querySelector("#div-" + idUm + "-final");
-                    divColTh.textContent = divColTh.textContent.replace(");", " ");
+                    divColTh.textContent = divColTh.textContent.replace(");", "");
+
                     const divForeign = document.createElement("div");
-                    divForeign.id = `div-${colunaUm}-foreign`;
-                    divForeign.textContent = cmdSQL;
-
-                    divColTh.appendChild(divForeign);
+                    divForeign.id = `div-${idDois}-foreign`;
+                    divForeign.className = `div-${idDois}-foreign`;
                     
-                    const divForeignFinal = document.createElement("div");
-                    divForeignFinal.id = `div-${colunaUm}-foreign-final`;
-                    divForeignFinal.textContent = ");";
+                    divColTh.appendChild(divForeign);
 
-                    divForeign.appendChild(divForeignFinal);
+                    
+
+                    // if ( divForeign.length === 1 ) {
+                    //     divForeign.textContent = cmdSQL + ",";
+                    // } else {
+                    //     divForeign.textContent = cmdSQL;
+                    // }
+
+
                     colunaUm = [];
                     colunaDois = [];
                 } 
             }
+
 
         } else {
             trTh.style.border = "none";
