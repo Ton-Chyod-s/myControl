@@ -282,3 +282,7 @@ select {
     color: white;
 }
 
+#colUm-FOREING-colDois {
+    /* border: 1px solid #ccc; */
+    display: flex;
+}

@@ -339,7 +339,10 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
 
                     divColTh.appendChild(divForeign);
                     divForeign.appendChild(constdivForeignFinal);   
-                 
+                    
+                    const divSeraFinal = document.createElement("div");
+                    divSeraFinal.textContent = ");";
+                    divColTh.appendChild(divSeraFinal);
 
                     // if ( divForeign.length === 1 ) {
                     //     divForeign.textContent = cmdSQL + ",";
