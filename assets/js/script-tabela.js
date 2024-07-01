@@ -8,8 +8,6 @@ let colunaUm = [];
 let colunaDois = [];
 let verificacao = 0;
 
-
-
 function criarTabela() {
     const divTabela = document.querySelector("#corpoTabelas");
     let nomeTabela;
@@ -321,7 +319,11 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
 
                 if ( colUm !== colDois ) {
                     const cmdSQL = 'FOREIGN KEY (' + colunaUm + ') REFERENCES ' + colDois + '(' + colunaDois + ');';
-                    
+
+                    const divTh = document.querySelector("#div-" + colunaUm + ";");
+
+
+
                     console.log(cmdSQL);
                 } 
             }
