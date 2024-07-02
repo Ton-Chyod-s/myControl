@@ -7,7 +7,6 @@ let referes = [];
 let colunaUm = [];
 let colunaDois = [];
 
-
 function criarTabela() {
     const divTabela = document.querySelector("#corpoTabelas");
     let nomeTabela;
@@ -318,43 +317,31 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
                 const colDois = colunaDois[0].id
 
                 const idUm = colunaUm[0].id;
-                const idDois = colunaDois[0].id;
 
-                if ( colUm !== colDois ) {
-                    const cmdSQL = 'FOREIGN KEY (' + colunaUm + ') REFERENCES ' + colDois + '(' + colunaDois + ')';
+                if (colUm !== colDois) {
 
-                    const divColTh = document.querySelector("#div-" + idUm + "-final");
+
+
+                    const cmdSQL = `FOREIGN KEY (${colunaUm}) REFERENCES ${colDois}(${colunaDois})`;
+                
+                    const divColTh = document.querySelector(`#div-${colUm}-final`);
                     divColTh.textContent = divColTh.textContent.replace(");", "");
-
+                
                     const divForeign = document.createElement("div");
-                    divForeign.id = `colUm-FOREING-colDois`
-
-                    const constdivForeignFinal = document.createElement("div");
-
-                    if ( divColTh.textContent != null ) {
-                        constdivForeignFinal.textContent = ","
-                    }
-
-                    divForeign.textContent = cmdSQL
-
+                    divForeign.id = `colUm-FOREIGN-colDois`;
+                    divForeign.textContent = `${cmdSQL} ,`;
+                
                     divColTh.appendChild(divForeign);
-                    divForeign.appendChild(constdivForeignFinal);   
-                    
+                
                     const divSeraFinal = document.createElement("div");
                     divSeraFinal.textContent = ");";
                     divColTh.appendChild(divSeraFinal);
-
-                    // if ( divForeign.length === 1 ) {
-                    //     divForeign.textContent = cmdSQL + ",";
-                    // } else {
-                    //     divForeign.textContent = cmdSQL;
-                    // }
-
-
+                
                     colunaUm = [];
                     colunaDois = [];
-                    
-                } 
+                    verificacao++;
+                }
+                
             }
 
 
@@ -509,11 +496,25 @@ function novaPlanilha() {
                 tabelas.push(colunas);
             }
             
+            let nomeTabela;
+
+            if (cont === 0) {
+                nomeTabela = document.querySelector("#nomeTabela").value.trim().replace(/\s+/g, "_");
+        
+                cont++;
+            } else {
+                nomeTabela = document.querySelector("#select").value.trim().replace(/\s+/g, "_");
+                
+            }
+
             console.log(tabelas);
+
+            const divFinal = document.querySelector(`div-${nomeTabela}`);
             
+            console.log(divFinal);
+
             createCMD.textContent = `CREATE DATABASE ${nomeBancoDados};`;
             
-
             for (let i = 0; i < tabelas.length; i++) {
                 const linhas = tabelas[i];
                 
@@ -539,8 +540,9 @@ function novaPlanilha() {
                         div.id = `div-${linhas.id}-final`;
                         div.className = "table_table-final";
                         div.textContent = ");";
-                        divCMD.textContent = `${linhas[j]} ${ linhas[j + 1]}`;
 
+                        divCMD.textContent = `${linhas[j]} ${ linhas[j + 1]}`;
+                        
                         divCMD.appendChild(div);
                     } else {
                         divCMD.textContent = `${linhas[j]} ${ linhas[j + 1]},`;

@@ -236,8 +236,8 @@ select {
 
 #idTabelaCMD {
     /* border: 1px solid #ccc; */
-    display: flex;
-    justify-content: left;
+    word-wrap: break-word;
+    width: 45%;
 
 }
 
@@ -285,4 +285,9 @@ select {
 #colUm-FOREING-colDois {
     /* border: 1px solid #ccc; */
     display: flex;
+}
+
+.table_table-final text {
+    border: 1px solid #ccc;
+
 }
