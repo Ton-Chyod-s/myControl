@@ -127,6 +127,7 @@ function addHeaderCell(tabela, cabecalho) {
             divThs.className = `divThs`;
             th.appendChild(divThs);
             const img = document.createElement("img");
+            img.id = `imgTrash`;
             img.src = "assets/images/icon/delete.png";
 
             divThs.appendChild(img);
@@ -658,10 +659,12 @@ function deletarCmd() {
     colunaDois = [];
     CmdSQL.textContent = "";
     tabelasCMD.textContent = "";
-    document.querySelectorAll("th").forEach(th => th.style.border = "none");
+    document.querySelectorAll("th").forEach(th => th.style.border = "none").forEach(th => th.style.backgroundColor = "#fff");
     
-    const divImg = document.querySelectorAll(".divThs");
-    divImg.forEach(div => div.remove());
+
+
+    document.querySelectorAll(".imgTrash").forEach(i => i.remove());
+    
 
 }
 
