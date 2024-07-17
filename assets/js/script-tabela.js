@@ -17,7 +17,6 @@ function criarTabela() {
         cont++;
     } else {
         nomeTabela = document.querySelector("#select").value.trim().replace(/\s+/g, "_");
-        
     }
 
     const cabecalho = document.querySelector("#cabecalhoTabela").value.trim();
@@ -46,10 +45,8 @@ function criarTabela() {
             if (!headerExists(tabela, cabecalho)) {
                 addHeaderCell(tabela, cabecalho);
                 document.querySelector("#divCabecalhoTabela > input").value = "";
-                
             } 
 
-            
         } else {
             createNewTable(divTabela, nomeTabela, cabecalho);
             
@@ -139,10 +136,7 @@ function addHeaderCell(tabela, cabecalho) {
                 const th = document.getElementById(nomeTabela + "-" + cabecalho);
                 th.remove();
             })
-
-            
         }
-
     })
 
     th.addEventListener("mouseleave", function() {
@@ -159,7 +153,6 @@ function addHeaderCell(tabela, cabecalho) {
             divTh.style.backgroundColor = "white";
         }
     })
-
 
     th.addEventListener("dblclick", function() {
         click = true;
@@ -179,8 +172,6 @@ function addHeaderCell(tabela, cabecalho) {
                 referes = [];   
             }
 
-            
-
         } else {
             const divThs = document.getElementById(`divThs-${nomeTabela}-${cabecalho}`);
             divThs.remove();
@@ -192,8 +183,6 @@ function addHeaderCell(tabela, cabecalho) {
             doubleClick = 0;
             click = false;
         }
-
-        
 
     });
     
