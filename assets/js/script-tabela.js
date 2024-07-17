@@ -649,7 +649,7 @@ function atualizarCmd() {
 }
 
 function deletarCmd() {
-    window.alert("to aqaui!");
+    window.alert("to aqui!");
 }
 
 function deletarBD() {
