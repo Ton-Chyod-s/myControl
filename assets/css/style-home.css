@@ -71,14 +71,22 @@ a {
 
 /* Menu lateral esquerdo */
 #menuSite {
-    background: #F6FAFF;
+    background: #fff;
     padding: 8px;
     font-size: 1em;
-    width: 25px;
+    width: 70px;
     height: 100%;
     position: fixed;
     top: 45px;
     left: 0;
+}
+
+#menuSite:hover {
+    background: #F6FAFF;
+    width: 130px;
+    height: 100%;
+    transition: 0.5s;
+    position: absolute;
 }
 
 #menu {
@@ -87,13 +95,10 @@ a {
     
 }
 
-#buttonMenu, #buttonMenu1, #buttonMenu2, #buttonMenu3 {
-    width: 100%;
-    padding: 10px 0; /* Ajuste de padding */
-    border: 1px solid #D5DDE8;
-    font-size: 0.9em;
-    background-color: #F6FAFF;
-}
+
+
+
+
 
 /* Informações do site */
 #infoSite {
