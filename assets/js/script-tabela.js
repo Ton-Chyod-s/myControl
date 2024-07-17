@@ -644,12 +644,12 @@ function tabelaExemplo() {
     
 }
 
-function atualizarLinha() {
+function atualizarCmd() {
     window.alert("Em desenvolvimento!");
 }
 
-function deletarLinha() {
-    window.alert("Em desenvolvimento!");
+function deletarCmd() {
+    window.alert("to aqaui!");
 }
 
 function deletarBD() {
