@@ -451,7 +451,7 @@ function novaPlanilha() {
             const divTabelas = document.getElementsByClassName("table table-bordered table-hover");
             let nomeBancoDados = document.querySelector("#inputBancoDados").value;
 
-            nomeBancoDados = nomeBancoDados.trim().replace(/\s+/g, "_");
+            nomeBancoDados = nomeBancoDados.trim().replace(/\s+/g, "_").replace("-", "_");
             if (!nomeBancoDados) {
                 nomeBancoDados = "generico";
             }
