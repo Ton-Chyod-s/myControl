@@ -85,9 +85,10 @@ a {
     background: #F6FAFF;
     width: 130px;
     height: 100%;
-    transition: 0.5s;
+    transition: 0.7s;
     position: absolute;
 }
+
 
 #menu {
     margin-top: -8px;
