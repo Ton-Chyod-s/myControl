@@ -600,7 +600,6 @@ function confirmarPlanilha() {
     div.appendChild(exemploButton);
     divNomeTabela.remove();
     divCabecalhoTabela.remove();
-
 }
 
 function tabelaExemplo() {
@@ -643,7 +642,7 @@ function tabelaExemplo() {
     option.text = nomeTabela;
     tabelaSelect.appendChild(option);
     
-    }
+}
 
 function atualizarLinha() {
     window.alert("Em desenvolvimento!");
