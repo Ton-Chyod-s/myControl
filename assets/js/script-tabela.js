@@ -23,8 +23,7 @@ function criarTabela() {
     nomeTabela = nomeTabela.toLowerCase();
 
     if (nomeTabela === "") {
-        console.log(cont);
-        
+        cont--;
         window.alert("Por favor, preencha todos os campos disponiveis.");
         return;
     }
@@ -391,6 +390,7 @@ function novaPlanilha() {
     criarButton.type = "button";
     criarButton.id = "criar";
     criarButton.onclick = criarTabela;
+
 
     div.appendChild(divNomeTabela);
     divNomeTabela.appendChild(inputNomeTabela);
