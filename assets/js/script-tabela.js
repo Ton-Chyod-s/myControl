@@ -161,7 +161,7 @@ function addHeaderCell(tabela, cabecalho) {
     })
 
 
-    th.addEventListener("click", function() {
+    th.addEventListener("dblclick", function() {
         click = true;
         doubleClick++;
         const divTh = document.querySelector("#" + nomeTabela + "-" + cabecalho);
