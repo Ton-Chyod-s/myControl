@@ -327,7 +327,6 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
                     colunaDois = [];
                     verificacao++;
                 }
-                
             }
 
 
