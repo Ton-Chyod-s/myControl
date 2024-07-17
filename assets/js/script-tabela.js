@@ -127,7 +127,7 @@ function addHeaderCell(tabela, cabecalho) {
             divThs.className = `divThs`;
             th.appendChild(divThs);
             const img = document.createElement("img");
-            img.id = `imgTrash`;
+            img.className = `imgTrash`;
             img.src = "assets/images/icon/delete.png";
 
             divThs.appendChild(img);
@@ -663,7 +663,7 @@ function deletarCmd() {
     
 
 
-    document.querySelectorAll(".imgTrash").forEach(i => i.remove());
+    document.getElementsByClassName("imgTrash")
     
 
 }
