@@ -391,6 +391,9 @@ function novaPlanilha() {
     criarButton.id = "criar";
     criarButton.onclick = criarTabela;
 
+    criarButton.addEventListener("keypress", function() {
+        alert("teste");
+    });
 
     div.appendChild(divNomeTabela);
     divNomeTabela.appendChild(inputNomeTabela);
