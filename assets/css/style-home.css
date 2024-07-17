@@ -122,8 +122,6 @@ main {
     position: relative;
     overflow: hidden;
     padding-top: 150%;
-    
-
 }
 
 #formulario {    
@@ -132,8 +130,7 @@ main {
     left: 0;
     width: 95%;
     height: 100%;
-    border: 0;
-    
+    border: 0; 
 }
 
 /* Rodapé */
