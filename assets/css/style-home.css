@@ -111,11 +111,12 @@ a {
 }
 
 /* Corpo do site e iframe */
-main {
+#corpoSite {
     margin-left: 100px;
     margin-right: 50px;
     padding: 20px;
     color: #292B2C;
+    border: 1px solid #DEE2E6;
 }
 
 #formSection {
