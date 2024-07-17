@@ -391,8 +391,12 @@ function novaPlanilha() {
     criarButton.id = "criar";
     criarButton.onclick = criarTabela;
 
-    criarButton.addEventListener("keypress", function() {
-        alert("teste");
+    document.addEventListener("keydown", function(event) {
+        // Verifica se a tecla pressionada é Enter (código 13)
+        if (event.key === "Enter") {
+            // Chama a função criarTabela()
+            criarTabela();
+        }
     });
 
     div.appendChild(divNomeTabela);
