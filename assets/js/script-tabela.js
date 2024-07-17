@@ -292,7 +292,7 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
     tabela.appendChild(tbody);
     divTabela.appendChild(tabela);
 
-    th.addEventListener("click", function() {
+    th.addEventListener("dblclick", function() {
         click = true;
         doubleClick++;
 
@@ -319,8 +319,6 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
                 const idUm = colunaUm[0].id;
 
                 if (colUm !== colDois) {
-
-
 
                     const cmdSQL = `FOREIGN KEY (${colunaUm}) REFERENCES ${colDois}(${colunaDois})`;
                 
