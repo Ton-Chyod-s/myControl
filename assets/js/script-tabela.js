@@ -658,7 +658,7 @@ function deletarCmd() {
     colunaDois = [];
     CmdSQL.textContent = "";
     tabelasCMD.textContent = "";
-    document.querySelectorAll("th").style.border = "none";
+    document.querySelectorAll("th").forEach(th => th.style.border = "none");
     
 
 }
