@@ -668,8 +668,6 @@ function deletarCmd() {
         divThs.remove();
     });
     
-    
-
 }
 
 function deletarBD() {
