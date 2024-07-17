@@ -651,7 +651,16 @@ function atualizarCmd() {
 }
 
 function deletarCmd() {
-    window.alert("to aqui!");
+    const CmdSQL = document.querySelector("#createCMD");
+    const tabelasCMD = document.querySelector("#tabelasCMD");
+
+    colunaUm = [];
+    colunaDois = [];
+    CmdSQL.textContent = "";
+    tabelasCMD.textContent = "";
+    document.querySelectorAll("th").style.border = "none";
+    
+
 }
 
 function deletarBD() {
