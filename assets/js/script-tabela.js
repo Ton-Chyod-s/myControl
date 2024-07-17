@@ -665,7 +665,7 @@ function deletarCmd() {
     });
 
     document.querySelectorAll(".imgTrash").forEach(divThs => {
-        divThs.src = "";
+        divThs.remove();
     });
     
     
