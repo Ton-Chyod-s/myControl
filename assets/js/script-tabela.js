@@ -280,7 +280,7 @@ function createNewTable(divTabela, nomeTabela, cabecalho) {
     tabela.appendChild(tbody);
     divTabela.appendChild(tabela);
 
-    th.addEventListener("dblclick", function() {
+    th.addEventListener("dblclick", function() { 
         click = true;
         doubleClick++;
 
@@ -432,8 +432,10 @@ function novaPlanilha() {
     divSql.appendChild(sql);
 
     sql.onclick = function() {
-        console.log(colunaUm);
+        colunaUm = [];
+        colunaDois = [];
 
+        console.log(colunaUm);
         const corpoTabela = document.querySelector("#corpoTabelas").textContent.trim();
 
         if ( corpoTabela ) {
