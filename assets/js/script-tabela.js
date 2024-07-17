@@ -660,6 +660,8 @@ function deletarCmd() {
     tabelasCMD.textContent = "";
     document.querySelectorAll("th").forEach(th => th.style.border = "none");
     
+    const divImg = document.querySelectorAll(".divThs");
+    divImg.forEach(div => div.remove());
 
 }
 
