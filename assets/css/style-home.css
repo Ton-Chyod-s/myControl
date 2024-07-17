@@ -111,11 +111,22 @@ main {
     color: #292B2C;
 }
 
-#formulario {    border: none; /* Remover bordas para evitar espaço extra */
-    box-shadow: 0 0 5px #e3e3e3;
+#formSection {
+    position: relative;
+    overflow: hidden;
+    padding-top: 150%;
+    
+
+}
+
+#formulario {    
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto; /* Altura automática baseada no conteúdo */
-    box-sizing: border-box; /* Inclui bordas e padding no tamanho total */
+    height: 100%;
+    border: 0;
+    
 }
 
 /* Rodapé */

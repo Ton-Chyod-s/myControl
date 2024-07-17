@@ -127,7 +127,5 @@ function criarIframe(text) {
         iframe.src = "tabela.html";
     }
 
-    iframe.style.width = "100%";
-    iframe.style.height = "auto";
     section.appendChild(iframe);
 }
