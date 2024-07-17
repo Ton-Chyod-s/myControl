@@ -659,11 +659,15 @@ function deletarCmd() {
     colunaDois = [];
     CmdSQL.textContent = "";
     tabelasCMD.textContent = "";
-    document.querySelectorAll("th").forEach(th => th.style.border = "none").forEach(th => th.style.backgroundColor = "#fff");
+    document.querySelectorAll("th").forEach(th => {
+        th.style.border = "none";
+        th.style.backgroundColor = "#fff"; // Assuming you want no background color
+    });
+
+    document.querySelectorAll(".imgTrash").forEach(divThs => {
+        divThs.src = "";
+    });
     
-
-
-    document.getElementsByClassName("imgTrash")
     
 
 }
